@@ -11,6 +11,7 @@
   -
 - Loop
   - [for-in 반복문](https://github.com/devyoon56/TIL/blob/main/Loop/for.md)
+  - [while 반복문]
 
 ---
 
