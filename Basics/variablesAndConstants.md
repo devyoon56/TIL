@@ -14,15 +14,16 @@
 ## 변수와 상수 선언하기1
 
 - 상수는 **let**으로, 변수는 **var**로 선언합니다.
+- 변수명과 상수명은 항상 소문자로 시작하고 camelCase를 사용합니다.
 
 ```swift
 let name: String = "Jake"   // type annotation
 var age = 29        // type inference
-var job: String     // 변수에 값을 할당하지 않고 선언
+var myJob: String     // 변수에 값을 할당하지 않고 선언
 
 age = 30            // 변수는 값 변경 가능
 name = "제이크"     // 상수는 값 변경 불가능, 에러 발생
-job = "iOS 개발자"  // 변수에 값을 할당
+myJob = "iOS 개발자"  // 변수에 값을 할당
 age = "삼십"        // 변수 타입이 정해지면 다른 타입의 데이터 할당 불가능(type safety)
 ```
 
