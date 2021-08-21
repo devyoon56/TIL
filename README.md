@@ -19,4 +19,4 @@
 ## Git
 
 - 문제해결
-  - [error : src refspec master does not match any 에러 해결 방법](https://github.com/devyoon56/TIL/blob/main/Git/%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0.md)
+  - [error : src refspec master does not match any 에러 해결 방법](https://github.com/devyoon56/TIL/blob/main/Git/problemSolving.md)
