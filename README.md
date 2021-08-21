@@ -9,7 +9,7 @@
 - Control Flow
   - [switch 조건문](https://github.com/devyoon56/TIL/blob/main/ControlFlow/switch.md)
   -
-- loop
+- Loop
   - [for-in 반복문](https://github.com/devyoon56/TIL/blob/main/Loop/for.md)
 
 ---
