@@ -12,7 +12,7 @@
 - Loop
   - [for-in 반복문](https://github.com/devyoon56/TIL/blob/main/Loop/for.md)
   - [while 반복문](https://github.com/devyoon56/TIL/blob/main/Loop/while.md)
-  - [repeat while 반복문]()
+  - [repeat while 반복문](https://github.com/devyoon56/TIL/blob/main/Loop/repeatwhile.md)
 
 ---
 
