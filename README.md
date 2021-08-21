@@ -6,7 +6,8 @@
 
 ## Swift
 
-- [변수와 상수](https://github.com/devyoon56/TIL/blob/main/Basics/variablesAndConstants.md)
+- Basics
+  - [변수와 상수](https://github.com/devyoon56/TIL/blob/main/Basics/variablesAndConstants.md)
 - Control Flow
   - [if 조건문](https://github.com/devyoon56/TIL/blob/main/ControlFlow/if.md)
   - [switch 조건문](https://github.com/devyoon56/TIL/blob/main/ControlFlow/switch.md)
