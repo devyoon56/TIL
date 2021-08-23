@@ -19,7 +19,8 @@
 - Function
   - [함수 기본](https://github.com/devyoon56/TIL/blob/main/Function/function.md)
   - [함수 응용](https://github.com/devyoon56/TIL/blob/main/Function/function2.md)
-  - [함수 응용2](https://github.com/devyoon56/TIL/blob/main/Function/function3.md)
+  - [함수 사용 주의점](https://github.com/devyoon56/TIL/blob/main/Function/function3.md)
+  - [함수 표기법]()
 
 ---
 
