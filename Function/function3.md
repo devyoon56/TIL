@@ -56,7 +56,7 @@ func greeting(person: String) -> String {
 
 ### 4. 함수의 실행문
 
-리턴 타입을 가지고 있는 함수의 실행문은 자체로 표현식이 됩니다. 표현식은 함수가 반환하는 값입니다.
+리턴 타입을 가지고 있는 함수의 실행문은 자체로 표현식이 됩니다. 이 표현식은 함수가 반환하는 값입니다.
 
 ```swift
 func greeting(person: String) -> String {
