@@ -76,6 +76,6 @@ func arithmeticMean(_ numbers: Double...) -> Double {
     return total / Double(numbers.count)
 }
 
-arithmeticMean(1, 2, 3, 4, 5)
-arithmeticMean(3, 8.25, 18.75)
+arithmeticMean(1, 2, 3, 4, 5)   // 3.0
+arithmeticMean(3, 8.25, 18.75)  // 10.0
 ```
