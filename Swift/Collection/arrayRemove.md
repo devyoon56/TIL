@@ -6,7 +6,7 @@
 var alphabet = ["A", "B", "C", "D", "E", "F", "G"]
 
 alphabet[0...2] = []  // ["D", "E", "F", "G"]
-alphabet.remove(at: 3)  // ["D", "E", "F"], 인덱스의 요소를 삭제하고 삭제된 요소 반환
+alphabet.remove(at: 3)  // ["D", "E", "F"], 인덱스의 요소를 삭제하고 삭제된 요소 반환 ("G")
 
 alphabet.remove(at: 3)  // 에러 발생, 인덱스가 없음 Index out of range
 
