@@ -86,10 +86,12 @@ print(numArray[numArray.endIndex])      // 에러 발생, Index out of range
 
 ```swift
 // 4. 요소의 인덱스 반환받기
-var numArray = [1, 2, 3, 4, 5]
+var numArray = [1, 2, 3, 2, 5]
 
-numArray.firstIndex(of: 3)      // 2
-numArray.lastIndex(of: 3)       // 2
+numArray.firstIndex(of: 2)      // 1
+numArray.lastIndex(of: 2)       // 3
 ```
 
-firstIndex(of: 3)은 요소 3이 배열의 앞에서부터 몇 번째 인덱스에 있는지를 반환합니다. lastIndex(of: 3)은 요소 3이 배열의 뒤에서부터 몇 번째 인덱스에 있는지를 반환합니다.
+firstIndex(of: 2)은 요소 2가 배열의 앞에서부터 찾았을 때 앞에서부터 몇 번째 인덱스에 있는지를 반환합니다.
+
+lastIndex(of: 2)은 요소 2가 배열의 뒤에서부터 찾았을 때 앞에서부터 몇 번째 인덱스에 있는지를 반환합니다.
