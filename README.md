@@ -24,8 +24,8 @@
   - [함수 표기법](https://github.com/devyoon56/TIL/blob/main/Swift/Function/function4.md)
   - [inout](https://github.com/devyoon56/TIL/blob/main/Swift/Function/inout.md)
 - Optional
-  - [옵셔널 기본](https://github.com/devyoon56/TIL/blob/main/Optionals/optional.md)
-  - [옵셔널 추출](https://github.com/devyoon56/TIL/blob/main/Optionals/unwrapping.md)
+  - [옵셔널 기본](https://github.com/devyoon56/TIL/blob/main/Swift/Optionals/optional.md)
+  - [옵셔널 추출](https://github.com/devyoon56/TIL/blob/main/Swift/Optionals/unwrapping.md)
 - Collection
   - [Array 배열](https://github.com/devyoon56/TIL/blob/main/Collection/array.md)
     - [삽입하기](https://github.com/devyoon56/TIL/blob/main/Collection/arrayInsert.md)
