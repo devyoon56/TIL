@@ -31,7 +31,7 @@
     - [삽입하기](https://github.com/devyoon56/TIL/blob/main/Collection/arrayInsert.md)
     - [교체하기](https://github.com/devyoon56/TIL/blob/main/Collection/arrayReplace.md)
     - [추가하기](https://github.com/devyoon56/TIL/blob/main/Collection/arrayAppend.md)
-    - [삭제하기]()
+    - [삭제하기](https://github.com/devyoon56/TIL/blob/main/Collection/arrayRemove.md)
   - [Dictionary 딕셔너리]()
   - [Set 집합]()
 
