@@ -90,8 +90,13 @@ var numArray = [1, 2, 3, 2, 5]
 
 numArray.firstIndex(of: 2)      // 1
 numArray.lastIndex(of: 2)       // 3
+
+print(numArray.firstIndex(of: 2))   // Optional(1)
+print(numArray.lastIndex(of: 2))    // Optional(3)
 ```
 
 firstIndex(of: 2)은 요소 2가 배열의 앞에서부터 찾았을 때 앞에서부터 몇 번째 인덱스에 있는지를 반환합니다.
 
 lastIndex(of: 2)은 요소 2가 배열의 뒤에서부터 찾았을 때 앞에서부터 몇 번째 인덱스에 있는지를 반환합니다.
+
+찾고자하는 요소가 없으면 nil을 반환합니다. 따라서 firstIndex(of:)와 lastIndex(of:)가 반환하는 값을 사용하려면 옵셔널을 벗겨야 합니다.
