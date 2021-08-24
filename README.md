@@ -25,6 +25,7 @@
   - [inout](https://github.com/devyoon56/TIL/blob/main/Function/inout.md)
 - Optional
   - [옵셔널 기본](https://github.com/devyoon56/TIL/blob/main/Optionals/optional.md)
+  - [옵셔널 추출](https://github.com/devyoon56/TIL/blob/main/Optionals/unwrapping.md)
 
 ---
 
