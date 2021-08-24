@@ -10,9 +10,9 @@
   - [변수와 상수](https://github.com/devyoon56/TIL/blob/main/Swift/Basics/variablesAndConstants.md)
   - [데이터 타입](https://github.com/devyoon56/TIL/blob/main/Swift/Basics/dataType.md)
 - Control Flow
-  - [if 조건문](https://github.com/devyoon56/TIL/blob/main/ControlFlow/if.md)
-  - [switch 조건문](https://github.com/devyoon56/TIL/blob/main/ControlFlow/switch.md)
-  - [guard 문](https://github.com/devyoon56/TIL/blob/main/ControlFlow/guard.md)
+  - [if 조건문](https://github.com/devyoon56/TIL/blob/main/Swift/ControlFlow/if.md)
+  - [switch 조건문](https://github.com/devyoon56/TIL/blob/main/Swift/ControlFlow/switch.md)
+  - [guard 문](https://github.com/devyoon56/TIL/blob/main/Swift/ControlFlow/guard.md)
 - Loop
   - [for-in 반복문](https://github.com/devyoon56/TIL/blob/main/Loop/for.md)
   - [while 반복문](https://github.com/devyoon56/TIL/blob/main/Loop/while.md)
