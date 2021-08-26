@@ -95,6 +95,7 @@ print(dic.keys)    // ["C", "A", "B"]
 print(dic.values)  // ["City", "Apple", "Banana"]
 
 // 키와 값을 오름차순으로 정렬해서 얻기
+// 정렬한 결과는 배열로 반환
 print(dic.keys.sorted())   // ["A", "B", "C"]
 print(dic.values.sorted())  // ["Apple", "Banana", "City"]
 ```
