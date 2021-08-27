@@ -73,7 +73,7 @@ var myiPhone = Apple.iPhone(modelName: "XS", color: "Space Gray")
 
 switch myiPhone {
 case .iPhone(modelName: let model, color: let modelColor):
-    print("\(modelColor) 색상의 아이폰 \(model) 모델")
+    print("\(modelColor) 색상의 아이폰 \(model)")
 case .mac(year: let releaseYear, color: let modelColor, screenInch: let screenSize):
     print("\(releaseYear)에 출시한 \(modelColor) 색상의 \(screenSize)인치 맥")
 case .iPad(year: let releaseYear, color: let modelColor, screenInch: let screenSize):
