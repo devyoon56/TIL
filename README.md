@@ -38,6 +38,7 @@
 - Enumeration
   - [열거형 기본](https://github.com/devyoon56/TIL/blob/main/Swift/Enumeration/enum.md)
   - [열거형 원시값](https://github.com/devyoon56/TIL/blob/main/Swift/Enumeration/raw.md)
+  - [열거형 연관값](https://github.com/devyoon56/TIL/blob/main/Swift/Enumeration/associated.md)
 
 ---
 
