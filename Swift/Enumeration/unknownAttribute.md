@@ -54,6 +54,7 @@ case .facebook:
     print("페이스북 계정으로 로그인합니다.")
 case .naver:
     print("네이버 계정으로 로그인합니다.")
+// kakaotalk 케이스 분기처리
 @unknown default:
     print("그외 다른 방법으로 로그인합니다.")
 }
