@@ -42,6 +42,7 @@
   - [열거형과 옵셔널](https://github.com/devyoon56/TIL/blob/main/Swift/Enumeration/optionalEnum.md)
   - [기본 열거형과 스위치문](https://github.com/devyoon56/TIL/blob/main/Swift/Enumeration/enumSwitch.md)
   - [옵셔널 열거형과 스위치문](https://github.com/devyoon56/TIL/blob/main/Swift/Enumeration/enumSwitch2.md)
+  - [연관값이 있는 열거형과 스위치문](https://github.com/devyoon56/TIL/blob/main/Swift/Enumeration/enumSwitch3.md)
 
 ---
 
