@@ -41,6 +41,7 @@
   - [열거형 연관값](https://github.com/devyoon56/TIL/blob/main/Swift/Enumeration/associated.md)
   - [열거형과 옵셔널](https://github.com/devyoon56/TIL/blob/main/Swift/Enumeration/optionalEnum.md)
   - [열거형과 스위치1](https://github.com/devyoon56/TIL/blob/main/Swift/Enumeration/enumSwitch.md)
+  - [열거형과 스위치2](https://github.com/devyoon56/TIL/blob/main/Swift/Enumeration/enumSwitch2.md)
 
 ---
 
