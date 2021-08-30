@@ -16,6 +16,7 @@ enum Apple {
 var myAppleDevice: Apple = .iPhone(modelName: "아이폰 XS", modelColor: "스페이스 그레이")
 
 // 연관값이 있는 열거형의 분기처리
+// 바인딩 패턴 사용
 switch myAppleDevice {
 case .iPhone(let model, let color):
     print("\(color) 색상의 \(model) 모델입니다.")
