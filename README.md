@@ -45,6 +45,8 @@
   - [연관값이 있는 열거형과 스위치문](https://github.com/devyoon56/TIL/blob/main/Swift/Enumeration/enumSwitch3.md)
   - [옵셔널 타입과 스위치문](https://github.com/devyoon56/TIL/blob/main/Swift/Enumeration/enumSwitch4.md)
   - [열거형과 @unknown 키워드](https://github.com/devyoon56/TIL/blob/main/Swift/Enumeration/unknownAttribute.md)
+- Class and Struct
+  - [클래스와 구조체](https://github.com/devyoon56/TIL/blob/main/Swift/ClassAndStruct/classAndStruct.md)
 
 ---
 
