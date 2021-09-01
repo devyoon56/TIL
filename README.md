@@ -48,6 +48,7 @@
 - Class and Struct
   - [클래스와 구조체](https://github.com/devyoon56/TIL/blob/main/Swift/ClassAndStruct/classAndStruct.md)
   - [클래스와 구조체의 메모리 저장 방식](https://github.com/devyoon56/TIL/blob/main/Swift/ClassAndStruct/classAndStruct2.md)
+  - [클래스와 구조체의 let과 var 키워드](https://github.com/devyoon56/TIL/blob/main/Swift/ClassAndStruct/classAndStruct3.md)
 
 ---
 
