@@ -52,6 +52,7 @@
   - [클래스의 초기화](https://github.com/devyoon56/TIL/blob/main/Swift/ClassAndStruct/classInitializer.md)
 - Property
   - [저장 속성](https://github.com/devyoon56/TIL/blob/main/Swift/Property/storedProperty.md)
+  - [지연 저장 속성](https://github.com/devyoon56/TIL/blob/main/Swift/Property/lazyProperty.md)
 
 ---
 
