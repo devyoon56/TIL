@@ -72,3 +72,5 @@ var person = Person(name: "unknown", height: 1.75, weight: 75)
 // height, weight 속성을 사용해서 bmi 지연 저장 속성을 초기화
 print(person.bmi)       // 24.5
 ```
+
+이런 지연 저장 속성의 특징 때문에 지연 저장 속성은 상수로 선언할 수 없고 오직 변수로만 선언할 수 있습니다.
