@@ -50,6 +50,8 @@
   - [클래스와 구조체의 메모리 저장 방식](https://github.com/devyoon56/TIL/blob/main/Swift/ClassAndStruct/classAndStruct2.md)
   - [클래스와 구조체의 let 키워드](https://github.com/devyoon56/TIL/blob/main/Swift/ClassAndStruct/classAndStruct3.md)
   - [클래스의 초기화](https://github.com/devyoon56/TIL/blob/main/Swift/ClassAndStruct/classInitializer.md)
+- Property
+  - [저장 속성](https://github.com/devyoon56/TIL/blob/main/Swift/Property/property.md)
 
 ---
 
