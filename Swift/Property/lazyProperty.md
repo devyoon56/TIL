@@ -60,7 +60,7 @@ class Person {
         return weight / (height * height)
     }()
 
-    init(name: String, height: String, weight: String) {
+    init(name: String, height: Double, weight: Double) {
         self.name = name
         self.height = height
         self.weight = weight
