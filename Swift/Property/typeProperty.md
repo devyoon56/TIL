@@ -62,7 +62,7 @@ class Circle {
     static let pi: Double = 3.14159
     static var count: Int = 0
 
-    // 계산 타입 속성 선언
+    // 계산 타입 속성 선언, 변수로만 선언 가능
     static var multiplyPiByTwo: Double {
         return pi * 2
     }
