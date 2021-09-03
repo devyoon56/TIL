@@ -58,8 +58,8 @@ statusMessage 저장 속성 뒤에 속성 감시자 willSet()과 didSet()을 추
 
 > 저장 속성을 초기화할 때는 두 메서드가 호출되지 않습니다.
 
-- myProfile.statusMessage = "속성 공부 중" 으로 속성을 설정한 순간 두 메서드 내부의 코드가 실행되는 것을 확인할 수 있습니다.
-- myProfile.statusMessage = "속성 감시자 공부 중" 으로 속성을 설정한 순간 두 메서드의 내부 코드가 실행되는 것을 확인할 수 있습니다.
+- myProfile.statusMessage = "속성 공부 중" 으로 속성에 값을 설정하면 두 메서드 내부의 코드가 실행되는 것을 확인할 수 있습니다.
+- myProfile.statusMessage = "속성 감시자 공부 중" 으로 속성에 값을 설정하면 두 메서드의 내부 코드가 실행되는 것을 확인할 수 있습니다.
 
 > 일반적으로 willSet 또는 didSet 중에서 하나의 메서드만 구현합니다.(didSet을 많이 사용합니다)
 
