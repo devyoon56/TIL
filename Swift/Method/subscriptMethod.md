@@ -31,15 +31,15 @@ array[1]        // Swift, 서브스크립트 사용
 
 ```swift
 class SomeData {
-    var data = ["apple", "iOS", "Swift", "Subscript"]
+    var datas = ["apple", "iOS", "Swift", "Subscript"]
 
     // 인스턴스 서브스크립트
     subscript(index: Int) -> String {
         get {
-            return data[index]
+            return datas[index]
         }
         set {
-            data[index] = newValue
+            datas[index] = newValue
         }
     }
 }
