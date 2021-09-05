@@ -59,6 +59,8 @@
   - [타입 속성](https://github.com/devyoon56/TIL/blob/main/Swift/Property/typeProperty.md)
   - [타입 속성 이해하기](https://github.com/devyoon56/TIL/blob/main/Swift/Property/typeProperty2.md)
   - [속성 감시자](https://github.com/devyoon56/TIL/blob/main/Swift/Property/observer.md)
+- Method
+  - [인스턴스 메서드](https://github.com/devyoon56/TIL/blob/main/Swift/Method/instance.md)
 
 ---
 
