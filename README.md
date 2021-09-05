@@ -61,6 +61,7 @@
   - [속성 감시자](https://github.com/devyoon56/TIL/blob/main/Swift/Property/observer.md)
 - Method
   - [인스턴스 메서드](https://github.com/devyoon56/TIL/blob/main/Swift/Method/instance.md)
+  - [타입 메서드](https://github.com/devyoon56/TIL/blob/main/Swift/Method/instance.md)
 
 ---
 
