@@ -62,6 +62,7 @@
 - Method
   - [인스턴스 메서드](https://github.com/devyoon56/TIL/blob/main/Swift/Method/instanceMethod.md)
   - [타입 메서드](https://github.com/devyoon56/TIL/blob/main/Swift/Method/typeMethod.md)
+  - [서브스크립트](https://github.com/devyoon56/TIL/blob/main/Swift/Method/subscriptMethod.md)
 
 ---
 
