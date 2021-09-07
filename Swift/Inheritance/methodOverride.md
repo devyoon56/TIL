@@ -31,6 +31,20 @@ class Bicycle: Vehicle {
         print("띠링 띠링")      // 슈퍼 클래스 메서드 구현 무시 가능
     }
 }
+
+let train = Train()
+train.makeNoise()
+
+// 출력 결과
+// ....
+// 칙칙폭폭
+// ....
+
+let bicycle = Bicycle()
+bicycle.makeNoise
+
+// 출력 결과
+// 띠링 띠링
 ```
 
 ```swift
