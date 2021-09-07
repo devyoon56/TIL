@@ -65,6 +65,7 @@
   - [서브스크립트](https://github.com/devyoon56/TIL/blob/main/Swift/Method/subscriptMethod.md)
 - Inheritance
   - [클래스의 상속](https://github.com/devyoon56/TIL/blob/main/Swift/Inheritance/inheritance.md)
+  - [재정의](https://github.com/devyoon56/TIL/blob/main/Swift/Inheritance/override.md)
 
 ---
 
