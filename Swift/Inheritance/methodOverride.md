@@ -10,3 +10,63 @@
 > 생성자의 재정의는 특이한 케이스로 뒤에서 알아보겠습니다.
 
 ## 메서드 재정의 예시
+
+```swift
+class Vehicle {
+    func makeNoise() {
+        print("....")
+    }
+}
+
+class Train: Vehicle {
+    override func makeNoise() {
+        super.makeNoise()
+        print("칙칙폭폭")
+        super.makeNoise()       // 원하는 곳에서 슈퍼 클래스 메서드 호출 가능
+    }
+}
+
+class Bicycle: Vehicle {
+    override func makeNoise() {
+        print("띠링 띠링")      // 슈퍼 클래스 메서드 구현 무시 가능
+    }
+}
+```
+
+```swift
+class ArrayString {
+    var datas = ["1", "2", "3", "4", "5"]
+
+    subscript(index: Int) -> String {
+        get {
+            if index > 4 {
+                return "0"
+            }
+            return datas[index]
+        }
+        set {
+            datas[index] = newValue
+        }
+    }
+}
+
+class ArrayString2: ArrayString {
+    override subscript(index: Int) -> String {          // 서브스크립트 재정의 가능
+        get {
+            if index > 4 {
+                return "없는 인덱스입니다."
+            }
+            return super[index]
+        }
+        set {
+            super[index] = newValue
+        }
+    }
+}
+
+let arrayString = ArrayString2()
+arrayString[5]                  // 없는 인덱스입니다.
+arrayString[3]                  // "4"
+arrayString[0] = "0"
+arrayString[0]                  // "0"
+```
