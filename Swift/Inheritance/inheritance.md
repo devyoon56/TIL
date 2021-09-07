@@ -46,4 +46,4 @@ someUndergraduate.major         // 전자공학
 
 클래스 Undergraduate는 클래스 Student를 상속하고, 클래스 Student는 클래스 Person을 상속하므로 클래스 Undergraduate는 클래스 Student, Person의 모든 멤버를 상속합니다. 따라서 Undergraduate의 인스턴스는 두 클래스의 멤버에도 접근할 수 있습니다.
 
-> 주의할 점: 다중 상속(여러 개의 클래스를 한번에 상속하는 것)은 불가능합니다.
+> 주의할 점: 스위프트에서 다중 상속(여러 개의 클래스를 한번에 상속하는 것)은 불가능합니다.
