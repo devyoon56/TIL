@@ -47,6 +47,8 @@ bicycle.makeNoise
 // 띠링 띠링
 ```
 
+서브스크립트 메서드도 재정의할 수 있습니다.
+
 ```swift
 class ArrayString {
     var datas = ["1", "2", "3", "4", "5"]
