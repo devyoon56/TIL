@@ -72,7 +72,7 @@ class ArrayString2: ArrayString {
             if index > 4 {
                 return "없는 인덱스입니다."
             }
-            return super[index]
+            return super[index]             // 슈퍼 클래스의 서브스크립트 호출
         }
         set {
             super[index] = newValue
