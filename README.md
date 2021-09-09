@@ -68,6 +68,8 @@
   - [재정의](https://github.com/devyoon56/TIL/blob/main/Swift/Inheritance/override.md)
   - [속성 재정의](https://github.com/devyoon56/TIL/blob/main/Swift/Inheritance/propertyOverride.md)
   - [메서드 재정의](https://github.com/devyoon56/TIL/blob/main/Swift/Inheritance/methodOverride.md)
+- Initialization and Initializer
+  - [초기화와 생성자](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/basicInitializer.md)
 
 ---
 
