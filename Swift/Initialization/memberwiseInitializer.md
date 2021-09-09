@@ -9,12 +9,13 @@
 ```swift
 struct Color {
     var red: Double = 255.0
-    var green: Double
-    var blue: Double
+    var green: Double = 0.0
+    var blue: Double = 0.0
 }
 
+let red = Color()           // 기본 생성자 호출
 let white = Color(green: 255.0, blue: 255.0)        // 멤버와이즈 생성자 호출
 let black = Color(red: 0.0, green: 0.0, blue: 0.0)  // 멤버와이즈 생성자 호출
 ```
 
-이렇게 자동으로 생성되는 멤버와이즈 생성자를 호출해서 인스턴스를 생성하면 됩니다.
+이렇게 자동으로 생성되는 기본 생성자나 멤버와이즈 생성자를 호출해서 인스턴스를 생성하면 됩니다.
