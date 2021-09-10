@@ -74,6 +74,7 @@
   - [지정 생성자](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/initializer1.md)
   - [클래스 지정 생성자와 편의 생성자](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/initializer2.md)
   - [클래스 지정 생성자와 편의 생성자의 상속과 재정의](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/initializer3.md)
+  - [필수 생성자](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/requiredInitializer.md)
 
 ---
 
