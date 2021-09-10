@@ -72,6 +72,7 @@
   - [초기화와 생성자](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/basicInitializer.md)
   - [멤버와이즈 생성자](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/memberwiseInitializer.md)
   - [지정 생성자](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/initializer1.md)
+  - [클래스 지정 생성자와 편의 생성자](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/initializer2.md)
 
 ---
 
