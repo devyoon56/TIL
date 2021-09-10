@@ -41,11 +41,11 @@ class Aclass {
 }
 
 class Bclass: Aclass {
-    init() {
+    init() {                        // 지정 생성자
         super.init(x: 0)
     }
 
-    required init(x: Int) {
+    required init(x: Int) {         // 필수 생성자
         super.init(x: x)
     }
 }
