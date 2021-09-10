@@ -70,7 +70,7 @@ class Bclass: Aclass {
     init(x: Int, y: Int, z: Int) {
         self.z = z                  // 현재 클래스의 저장 속성 먼저 초기화
         super.init(x: x, y: y)      // 슈퍼 클래스의 지정 생성자를 호출하여 상속한 저장 속성 초기화
-        self.x = 10
+        self.x = 10                 // 모든 저장 속성 초기화 후 수정 가능
         self.y = 10
     }
 
