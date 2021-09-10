@@ -71,6 +71,7 @@
 - Initialization and Initializer
   - [초기화와 생성자](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/basicInitializer.md)
   - [멤버와이즈 생성자](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/memberwiseInitializer.md)
+  - [구조체 지정 생성자](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/structInitializer.md)
 
 ---
 
