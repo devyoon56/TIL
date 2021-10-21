@@ -77,7 +77,7 @@
   - [필수 생성자](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/requiredInitializer.md)
   - [소멸자](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/deinit.md)
 - Type Casting
-  - [is 연산자]()
+  - [is 연산자](https://github.com/devyoon56/TIL/blob/main/Swift/Type%20Casting/isOperator.md)
   - [as 연산자]()
 
 ---
