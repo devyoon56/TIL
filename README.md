@@ -78,7 +78,7 @@
   - [소멸자](https://github.com/devyoon56/TIL/blob/main/Swift/Initialization/deinit.md)
 - Type Casting
   - [is 연산자](https://github.com/devyoon56/TIL/blob/main/Swift/Type%20Casting/isOperator.md)
-  - [as 연산자]()
+  - [as 연산자](https://github.com/devyoon56/TIL/blob/main/Swift/Type%20Casting/asOperator.md)
 
 ---
 
