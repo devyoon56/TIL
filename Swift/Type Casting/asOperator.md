@@ -74,25 +74,26 @@ person2?.major      // Undergraduate 타입의 속성에 접근 가능 -> CS
 ```swift
 let person: Person = Undergraduate()
 
-if let newPerson = person as? Undergraduate() {
+if let newPerson = person as? Undergraduate {
     newPerson.major = "Computer Science"
     print(newPerson.major)                  // Computer Science
 }
 ```
 
 - as? 연산자를 사용한 다운캐스팅은 옵셔널 타입을 리턴하므로 if let 바인딩을 사용해서 옵셔널을 언래핑할 수 있습니다.
+- newPerson 상수는 이제 Undergraduate 타입의 인스턴스를 가리키고 Undergraduate 타입으로 인식되기 때문에 Undergraduate 타입의 모든 저장 속성에 접근할 수 있습니다.
 
 ```swift
 let person: Person = Undergraduate()
 
-let person2 = person as! Undergraduate()
+let person2 = person as! Undergraduate
 
 person2.major       // Undergraduate 타입의 속성에 접근 가능 -> CS
 ```
 
 - as! 연산자를 사용하여 다운캐스팅을 할 수 있습니다.
 - as! 연산자를 사용한 다운캐스팅이 성공한다면 옵셔널을 강제로 언래핑한 타입이 됩니다.
-- 하지만 as! 연산자를 사용한 다운캐스팅이 실패한다면 런타임 오류가 발생하므로 주의해야 합니다.
+- 하지만 as! 연산자를 사용한 다운캐스팅이 실패한다면 nil을 강제로 언래핑하기 때문에 런타임 오류가 발생하므로 주의해야 합니다.
 
 ## 업캐스팅
 
