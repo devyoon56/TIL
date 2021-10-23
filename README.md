@@ -85,6 +85,7 @@
   - [확장 이해하기](https://github.com/devyoon56/TIL/blob/main/Swift/Extension/extension1.md)
   - [계산 속성의 확장](https://github.com/devyoon56/TIL/blob/main/Swift/Extension/extension2.md)
   - [메서드의 확장](https://github.com/devyoon56/TIL/blob/main/Swift/Extension/extension3.md)
+  - [생성자의 확장](https://github.com/devyoon56/TIL/blob/main/Swift/Extension/extension4.md)
 
 ---
 
