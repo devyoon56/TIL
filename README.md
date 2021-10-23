@@ -7,11 +7,10 @@
 <div markdown="1">
 
 - [변수와 상수](https://github.com/devyoon56/TIL/blob/main/Swift/Basics/variablesAndConstants.md)
-
 - [데이터 타입](https://github.com/devyoon56/TIL/blob/main/Swift/Basics/dataType.md)
-
 </div>
 </details>
+
 ---
 
 ## Swift
