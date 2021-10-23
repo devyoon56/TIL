@@ -26,7 +26,7 @@
 </details>
 
 <details>
-<summary> <b> Lopp </b>  </summary>
+<summary> <b> Loop </b>  </summary>
 <div markdown="1">
 
 - [for-in 반복문](https://github.com/devyoon56/TIL/blob/main/Swift/Loop/for.md)
@@ -35,10 +35,19 @@
 </div>
 </details>
 
-- Loop
-  - [for-in 반복문](https://github.com/devyoon56/TIL/blob/main/Swift/Loop/for.md)
-  - [while 반복문](https://github.com/devyoon56/TIL/blob/main/Swift/Loop/while.md)
-  - [repeat while 반복문](https://github.com/devyoon56/TIL/blob/main/Swift/Loop/repeatwhile.md)
+<details>
+<summary> <b> Function </b>  </summary>
+<div markdown="1">
+
+- [함수 기본](https://github.com/devyoon56/TIL/blob/main/Swift/Function/function.md)
+- [함수 응용](https://github.com/devyoon56/TIL/blob/main/Swift/Function/function2.md)
+- [함수 사용 주의점](https://github.com/devyoon56/TIL/blob/main/Swift/Function/function3.md)
+- [함수 표기법](https://github.com/devyoon56/TIL/blob/main/Swift/Function/function4.md)
+- [inout](https://github.com/devyoon56/TIL/blob/main/Swift/Function/inout.md)
+- [@discardableResult](https://github.com/devyoon56/TIL/blob/main/Swift/Function/discardableResult.md)
+  </div>
+  </details>
+
 - Function
   - [함수 기본](https://github.com/devyoon56/TIL/blob/main/Swift/Function/function.md)
   - [함수 응용](https://github.com/devyoon56/TIL/blob/main/Swift/Function/function2.md)
