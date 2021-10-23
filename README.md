@@ -25,10 +25,16 @@
 </div>
 </details>
 
-- Control Flow
-  - [if 조건문](https://github.com/devyoon56/TIL/blob/main/Swift/ControlFlow/if.md)
-  - [switch 조건문](https://github.com/devyoon56/TIL/blob/main/Swift/ControlFlow/switch.md)
-  - [guard 문](https://github.com/devyoon56/TIL/blob/main/Swift/ControlFlow/guard.md)
+<details>
+<summary> <b> Lopp </b>  </summary>
+<div markdown="1">
+
+- [for-in 반복문](https://github.com/devyoon56/TIL/blob/main/Swift/Loop/for.md)
+- [while 반복문](https://github.com/devyoon56/TIL/blob/main/Swift/Loop/while.md)
+- [repeat while 반복문](https://github.com/devyoon56/TIL/blob/main/Swift/Loop/repeatwhile.md)
+</div>
+</details>
+
 - Loop
   - [for-in 반복문](https://github.com/devyoon56/TIL/blob/main/Swift/Loop/for.md)
   - [while 반복문](https://github.com/devyoon56/TIL/blob/main/Swift/Loop/while.md)
