@@ -45,8 +45,8 @@
 - [함수 표기법](https://github.com/devyoon56/TIL/blob/main/Swift/Function/function4.md)
 - [inout](https://github.com/devyoon56/TIL/blob/main/Swift/Function/inout.md)
 - [@discardableResult](https://github.com/devyoon56/TIL/blob/main/Swift/Function/discardableResult.md)
-  </div>
-  </details>
+</div>
+</details>
 
 - Function
   - [함수 기본](https://github.com/devyoon56/TIL/blob/main/Swift/Function/function.md)
