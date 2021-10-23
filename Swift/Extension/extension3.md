@@ -30,7 +30,7 @@ extension String {
     }
 }
 
-"Swift".printHelloSeveralTimes(of: 5)       // "Hello Swift" 5번 출력
+"Swift".printHelloSeveralTimes(of: 5)       // "Hello Swift!" 5번 출력
 ```
 
 ## mutating 인스턴스 메서드의 확장
