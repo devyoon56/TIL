@@ -15,9 +15,16 @@
 </div>
 </details>
 
-- Basics
-  - [변수와 상수](https://github.com/devyoon56/TIL/blob/main/Swift/Basics/variablesAndConstants.md)
-  - [데이터 타입](https://github.com/devyoon56/TIL/blob/main/Swift/Basics/dataType.md)
+<details>
+<summary> <b> Control Flow </b>  </summary>
+<div markdown="1">
+
+- [if 조건문](https://github.com/devyoon56/TIL/blob/main/Swift/ControlFlow/if.md)
+- [switch 조건문](https://github.com/devyoon56/TIL/blob/main/Swift/ControlFlow/switch.md)
+- [guard 문](https://github.com/devyoon56/TIL/blob/main/Swift/ControlFlow/guard.md)
+</div>
+</details>
+
 - Control Flow
   - [if 조건문](https://github.com/devyoon56/TIL/blob/main/Swift/ControlFlow/if.md)
   - [switch 조건문](https://github.com/devyoon56/TIL/blob/main/Swift/ControlFlow/switch.md)
