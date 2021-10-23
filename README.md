@@ -2,6 +2,10 @@
 
 오늘 공부한 내용을 정리하는 저장소입니다.
 
+---
+
+## Swift
+
 <details>
 <summary> <b> Basics </b>  </summary>
 <div markdown="1">
@@ -10,10 +14,6 @@
 - [데이터 타입](https://github.com/devyoon56/TIL/blob/main/Swift/Basics/dataType.md)
 </div>
 </details>
-
----
-
-## Swift
 
 - Basics
   - [변수와 상수](https://github.com/devyoon56/TIL/blob/main/Swift/Basics/variablesAndConstants.md)
