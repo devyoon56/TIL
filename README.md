@@ -87,6 +87,7 @@
   - [메서드의 확장](https://github.com/devyoon56/TIL/blob/main/Swift/Extension/extension3.md)
   - [생성자의 확장](https://github.com/devyoon56/TIL/blob/main/Swift/Extension/extension4.md)
   - [서브스크립트의 확장](https://github.com/devyoon56/TIL/blob/main/Swift/Extension/extension5.md)
+  - [중첩 타입의 확장](https://github.com/devyoon56/TIL/blob/main/Swift/Extension/extension6.md)
 
 ---
 
