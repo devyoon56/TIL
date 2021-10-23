@@ -81,6 +81,8 @@
   - [as 연산자](https://github.com/devyoon56/TIL/blob/main/Swift/Type%20Casting/asOperator.md)
   - [타입과 다형성](https://github.com/devyoon56/TIL/blob/main/Swift/Type%20Casting/polymorphism.md)
   - [Any와 AnyObject](https://github.com/devyoon56/TIL/blob/main/Swift/Type%20Casting/any.md)
+- Extension
+  - [확장 이해하기](https://github.com/devyoon56/TIL/blob/main/Swift/Extension/extension1.md)
 
 ---
 
