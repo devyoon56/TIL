@@ -5,7 +5,7 @@
 1. 속성 요구사항
 2. 메서드 요구사항
 
-## 속성의 요구사항 정의하는 방법
+## 속성의 요구사항을 정의하고 구현하는 방법
 
 먼저 속성의 요구사항을 정의하는 방법에 대해 알아봅니다.
 
@@ -47,7 +47,7 @@ static var type: String { get set } 의 경우
 - 타입 계산 속성으로 구현 가능 -> static 또는 class로 구현 가능
   - 클래스에서 채택 시 타입 계산 속성을 static으로 구현하면 재정의 불가능
   - 클래스에서 채택 시 타입 계산 속성을 class로 구현하면 재정의 가능
-  - 클래스가 아닌 타입은 static으로 구현해야함 -> class로 구현 불가능
+  - 클래스가 아닌 타입은 static으로 구현해야함 (class로 구현 불가능)
 
 ```swift
 struct TV: RemoteMouse {
@@ -80,6 +80,7 @@ class SmartPhone: RemoteMouse {
 
     static var type: String = "리모컨"
     // 타입 저장 속성의 재정의 원칙적 불가능
+
 }
 ```
 
