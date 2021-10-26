@@ -178,6 +178,7 @@
 
 - [프로토콜의 개념](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol1.md)
 - [프로토콜의 문법](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol2.md)
+- [프로토콜 요구사항의 종류1](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol3.md)
 </div>
 </details>
 
