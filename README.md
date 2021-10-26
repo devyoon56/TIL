@@ -180,6 +180,7 @@
 - [프로토콜의 문법](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol2.md)
 - [프로토콜 요구사항의 종류1(속성)](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol3.md)
 - [프로토콜 요구사항의 종류2(메서드)](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol4.md)
+- [타입으로써 프로토콜](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol5.md)
 </div>
 </details>
 
