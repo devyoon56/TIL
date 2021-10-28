@@ -186,6 +186,8 @@
 - [프로토콜 확장의 기본 개념](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol8.md)
 - [프로토콜의 확장과 메서드 우선순위](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol9.md)
 - [메서드 우선순위와 메서드 디스패치](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol10.md)
+- [프로토콜 확장의 제한](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol11.md)
+- [프로토콜 지향 프로그래밍](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol12.md)
 </div>
 </details>
 
