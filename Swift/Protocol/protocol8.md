@@ -12,9 +12,9 @@
 ```swift
 protocol Remote {
 
-	func turnOn()
+    func turnOn()
 
-	func turnOff()
+    func turnOff()
 
 }
 
@@ -61,12 +61,14 @@ class TV: Remote {}
 struct AirCon: Remote {}
 
 let tv = TV()
-tv.turnOn()
-tv.turnOff()
-tv.doAnotherAction()
+tv.turnOn()                     // "리모컨 켜기"
+tv.turnOff()                    // "리모컨 끄기"
+tv.doAnotherAction()            // "리모컨 다른 동작"
 
 let airCon = AirCon()
-airCon.turnOn()
-airCon.turnOff()
-airCon.doAnotherAction()
+airCon.turnOn()                 // "리모컨 켜기"
+airCon.turnOff()                // "리모컨 끄기"
+airCon.doAnotherAction()        // "리모컨 다른 동작"
 ```
+
+TV 클래스와 AirCon 구조체 모두 Remote 프로토콜을 채택했지만 어떤 프로토콜 요구사항 메서드도 구현하지 않았습니다. 그럼에도 프로토콜 확장에서 제공하는 기본 메서드를 사용할 수 있습니다.
