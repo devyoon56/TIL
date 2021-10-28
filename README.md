@@ -183,6 +183,9 @@
 - [타입으로써 프로토콜](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol5.md)
 - [프로토콜 관련 기타 문법](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol6.md)
 - [선택적 요구사항의 구현](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol7.md)
+- [프로토콜 확장의 기본 개념](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol8.md)
+- [프로토콜의 확장과 메서드 우선순위](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol9.md)
+- [메서드 우선순위와 메서드 디스패치](https://github.com/devyoon56/TIL/blob/main/Swift/Protocol/protocol10.md)
 </div>
 </details>
 
