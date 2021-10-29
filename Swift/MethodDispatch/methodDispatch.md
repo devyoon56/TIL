@@ -39,16 +39,17 @@
 
    - Initial Declaration: Table Dispatch(Witness Table)
    - Extension: Direct Dispatch
-   - 비고: 프로토콜 정의 시 선언한 요구사항의 메서드의 실행 주소를 Witness Table에 저장한다.
-     프로토콜을 채택하는 타입은 Witness Table을 생성한다.
+   - 비고
+     - 프로토콜 정의 시 선언한 요구사항의 메서드의 실행 주소를 Witness Table에 저장한다.
+     - 프로토콜을 채택하는 타입은 Witness Table을 생성한다.
 
 3. Class
 
    - Initial Declaration: Table Dispatch(Virtual Table)
    - Extension: Direct Dispatch(클래스 상속 시 재정의 불가능 원칙)
-   - 비고: final 키워드를 사용한 클래스의 메서드는 Direct Dispatch 방식으로 동작한다.
-     @objc dynamic 키워드를 사용한 클래스의 메서드는 Message Dispatch 방식으로 동작한다.
-     그리고 extension 내의 메서드를 재정의할 수 있다.
+   - 비고
+     - final 키워드를 사용한 클래스의 메서드는 Direct Dispatch 방식으로 동작한다.
+     - @objc dynamic 키워드를 사용한 클래스의 메서드는 Message Dispatch 방식으로 동작한다. 그리고 extension 내의 메서드를 재정의할 수 있다.
 
 4. @objc dynamic
    - Initial Declaration: Message Dispatch
