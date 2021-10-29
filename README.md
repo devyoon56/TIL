@@ -201,6 +201,15 @@
 </div>
 </details>
 
+<details>
+<summary> <b> Nested Type </b>  </summary>
+<div markdown="1">
+
+- [중첩 타입의 개념](https://github.com/devyoon56/TIL/blob/main/Swift/NestedType/nestedType.md)
+- [중첩 타입의 활용](https://github.com/devyoon56/TIL/blob/main/Swift/NestedType/nestedType2.md)
+</div>
+</details>
+
 ---
 
 ## Git
