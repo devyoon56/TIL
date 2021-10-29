@@ -191,6 +191,16 @@
 </div>
 </details>
 
+<details>
+<summary> <b> Method Dispatch </b>  </summary>
+<div markdown="1">
+
+- [메서드 디스패치의 개념](https://github.com/devyoon56/TIL/blob/main/Swift/MethodDispatch/methodDispatch.md)
+- [메서드 디스패치의 세 가지 종류](https://github.com/devyoon56/TIL/blob/main/Swift/MethodDispatch/methodDispatch2.md)
+- [프로토콜의 메서드 디스패치](https://github.com/devyoon56/TIL/blob/main/Swift/MethodDispatch/methodDispatch3.md)
+</div>
+</details>
+
 ---
 
 ## Git
