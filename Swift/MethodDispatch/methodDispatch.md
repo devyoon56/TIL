@@ -1,6 +1,6 @@
 # 메서드 디스패치(Method Dispatch)의 개념
 
-클래스와 프로토콜의 메서드가 실행되는 방식에 대해 알아봅니다.
+스위프트의 메서드가 실행되는 방식에 대해 알아봅니다.
 
 ## 메서드 디스패치의 개념 이해하기
 
@@ -49,7 +49,7 @@
    - Extension: Direct Dispatch(클래스 상속 시 재정의 불가능 원칙)
    - 비고
      - final 키워드를 사용한 클래스의 메서드는 Direct Dispatch 방식으로 동작한다.
-     - @objc dynamic 키워드를 사용한 클래스의 메서드는 Message Dispatch 방식으로 동작한다. 그리고 extension 내의 메서드를 재정의할 수 있다.
+     - @objc dynamic 키워드를 사용한 클래스의 메서드는 Message Dispatch 방식으로 동작한다. Message Dispatch 방식으로 바뀌뎜ㄴ extension 내의 메서드를 재정의할 수 있다.
 
 4. @objc dynamic
    - Initial Declaration: Message Dispatch
