@@ -5,4 +5,4 @@
 ## opentutorials(생활 코딩)
 
 - WEBn 시리즈
-  - WEB1 - HTML & Internet
+  - [WEB1 - HTML & Internet](https://github.com/devyoon56/TIL/blob/main/opentutorials/web/web1.md)
