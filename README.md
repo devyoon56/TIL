@@ -11,3 +11,4 @@
 
 ### WEBn 시리즈
   - [WEB1 - HTML & Internet](https://github.com/devyoon56/TIL/blob/main/opentutorials/web/web1.md)
+  - [WEB2 - CSS](https://github.com/devyoon56/TIL/blob/main/opentutorials/web/web2.md)
