@@ -7,8 +7,6 @@
 - 웹브라우저에게 HTML 코드로 자바스크립트가 시작된다고 알리는 태그
 - 웹브라우저는 script 태그 내부를 자바스크립트로 해석
 
-script 태그를 사용하는 html 예제 코드는 다음과 같다.
-
 ```html
 <body>
   <h1>JavaScript</h1>
@@ -18,7 +16,7 @@ script 태그를 사용하는 html 예제 코드는 다음과 같다.
 </body>
 ```
 
-웹브라우저에서 결과를 확인하면 화면에 hello world가 출력된다.
+웹브라우저 화면에 hello world가 출력된다.
 
 # HTML과 JS의 만남: 이벤트
 
@@ -31,10 +29,9 @@ script 태그를 사용하는 html 예제 코드는 다음과 같다.
 ```
 
 - onclick 속성의 값으로는 반드시 자바스크립트 코드를 사용해야 한다.
-- 웹브라우저는 onclick 속성을 만나면 onclick 속성의 값을 기억한다.
-- 사용자가 onclick 속성을 갖고 있는 태그를 클릭했을 때 웹브라우저가 기억하고 있던 자바스크립트 코드를 동작시킨다.
+- 사용자가 onclick 속성을 갖고 있는 태그를 클릭했을 때 웹브라우저는 onclick 속성 값인 자바스크립트 코드를 동작시킨다.
 
-이와 같이 웹브라우저에서 일어나는 일들을 **이벤트**라고 한다. 웹브라우저에서 일어날 수 있는 이벤트와 이에 대응하는 속성은 다양한데, 이것들은 사용자들에게 유용할 만한 이벤트와 속성들이다.
+이와 같이 웹브라우저에서 일어나는 일들을 **이벤트**라고 한다. 웹브라우저에서 일어날 수 있는 이벤트와 이에 대응하는 속성은 다양한데, 이것들은 사용자들에게 유용한 이벤트와 속성들이다.
 
 대표적으로 아래와 같은 이벤트와 속성들이 있다.
 
@@ -74,18 +71,7 @@ script 태그를 사용하는 html 예제 코드는 다음과 같다.
 
 # 변수와 대입 연산자
 
-변수는 '바뀔 수 없는 어떤 값'이라고 할 수 있다. 변수에는 대입 연산자(=)를 사용해서 값을 대입할 수 있다.
-
-```js
-x = 1;
-y = 2;
-x + y;  // 3
-
-x = 100;
-x + y;  // 102
-```
-
-**var** 키워드를 사용해서 변수를 선언하면 된다.
+**var** 키워드를 사용해서 변수를 선언한다. 변수에는 대입 연산자(=)를 사용해서 값을 대입할 수 있다.
 
 ```js
 var name = 'egoing';
@@ -100,7 +86,11 @@ var name = 'egoing';
 </body>
 ```
 
-button 타입의 input 태그를 클릭했을 때 body 태그의 style 속성을 동적으로, 프로그래밍적으로, 상호작용에 의해 변경하려고 한다. 먼저 자바스크립트 코드로 body 태그를 선택해야 한다.
+button 타입의 input 태그를 클릭했을 때 body 태그의 style 속성을 동적으로, 프로그래밍적으로, 상호작용에 의해 변경하려고 한다.
+
+  - 주간 모드와 야간 모드를 설정하는 input 태그 두 가지
+
+먼저 자바스크립트 코드로 body 태그를 선택해야 한다. document.querySelector() 메소드를 사용한다.
 
 ```js
 document.querySelector('body')
@@ -112,13 +102,13 @@ body 태그를 선택했으니 다음 단계로 body 태그의 style 속성을 �
 document.querySelector('body').style
 ```
 
-style 속성에 백그라운드 컬러를 변경하는 코드를 추가한다.
+style 속성에 백그라운드 색을 변경하는 코드를 추가한다.
 
 ```js
 document.querySelector('body').style.backgroundColor = 'black';
 ```
 
-style 속성에 컬러를 변경하는 코드를 추가한다.
+style 속성에 폰트 색을 변경하는 코드를 추가한다.
 
 ```js
 document.querySelector('body').style.backgroundColor = 'black';
@@ -199,8 +189,8 @@ document.write("4<br>");
 
 조건문은 if문의 괄호 안의 불리언 값에 따라 실행되는 코드를 바꾼다.
 
-- 괄호 안에 true가 오면 if문의 코드 실행.
-- 괄호 안에 false가 오면 else문의 코드 실행.
+- 괄호 안에 true가 오면 if문의 코드 실행
+- 괄호 안에 false가 오면 else문의 코드 실행
 
 # 조건문의 활용
 
@@ -208,8 +198,8 @@ document.write("4<br>");
 
 기존 두 개의 input 태그는 다음과 같다.
 
-- 'night' 버튼을 클릭하면 야간 모드가 되고
-- 'day' 버튼을 클릭하면 주간 모드가 된다.
+- 'night' 버튼을 클릭하면 야간 모드 설정
+- 'day' 버튼을 클릭하면 주간 모드 설정
 
 ```html
 <input type="button" value="night" onclick="
@@ -255,7 +245,7 @@ document.write("4<br>");
 
 리팩토링은 비효율적인 코드를 효율적으로 개선하는 과정, 즉 코드의 가독성을 높이고 유지보수하기 편하게 만들고 중복 코드를 제거하는 과정이다.
 
-이전의 코드
+이전 코드
 
 ```html
 <input
@@ -321,7 +311,7 @@ coworkers.push("taeho");
 document.write(coworkers.length);  // 4
 ```
 
-- coworkers라는 변수에 배열이라는 데이터 타입을 담는다.
+- coworkers라는 변수에 배열을 담는다.
 - 대괄호를 사용해서 배열을 만들고, 대괄호와 인덱스를 사용해서 배열의 값을 읽는다.
 - 배열의 length 프로퍼티를 사용해 배열의 크기를 얻을 수 있다.
 - 배열의 push() 메서드를 사용해 배열에 데이터를 추가할 수 있다.
@@ -338,10 +328,10 @@ while (i < 3) {
 ```
 
 - while 반복문은 조건문처럼 실행할 코드를 제어한다.
-- while 반복문은 괄호 안에 값이 true인 동안 반복 실행되고 괄호 안에 값이 false이면 종료된다.
+- while 반복문은 괄호 안의 값이 true인 동안 반복 실행되고 괄호 안의 값이 false가 되면 종료된다.
 - i의 값이 3보다 작으면 while 반복문의 코드는 계속 실행된다.
 - i의 값이 0이므로 무한루프를 방지하기 위해 i의 값을 1씩 증가시킨다.
-- 따라서 while 반복문은 총 3번 실행된다.
+- 따라서 while 반복문은 총 3번 실행된다. (i = 0, 1, 2)
 
 # 배열과 반복문
 
@@ -355,9 +345,9 @@ while (i < coworkers.length) {
 }
 ```
 
-- coworkers 배열의 크기만큼 while 반복문을 반복 실행한다.
+- coworkers 배열의 크기만큼 while 반복문을 반복 실행한다. (4번)
 - coworkers 배열의 크기만큼 반복하는 것은 coworkers 배열에 원소를 추가하거나 삭제해도 while 반복문이 이에 맞춰 반복한다는 것을 의미한다.
-- 따라서 coworkers 배열에 따라 유연하게 while 반복문이 실행된다.
+- 따라서 coworkers 배열에 데이터를 추가하거나 삭제하더라도 이에 맞춰 유연하게 while 반복문이 실행된다.
 
 # 배열과 반복문의 활용
 
@@ -385,7 +375,7 @@ while (i < coworkers.length) {
 
 배열과 반복문을 활용해서 주야간 모드에서 눈에 잘 보이는 링크 색깔로 변경하는 코드를 작성한다.
 
-야간 모드에서의 링크 색깔로 변경하는 코드
+야간 모드의 링크 색깔 변경 코드
 
 ```js
 var alist = document.querySelectorAll('a');
@@ -397,13 +387,13 @@ while (i < alist.length) {
 }
 ```
 
-- 모든 a 요소를 제어하기 위해 document.querySelectorAll 메서드를 사용한다.
+- 모든 a 요소를 제어하기 위해 document.querySelectorAll() 메서드를 사용한다.
   - 이 메서드는 정확히 배열을 반환하는 것은 아니다.
   - 노드 리스트를 반환하지만, 일단 배열이라고 생각하자.
-- alist는 모든 a 요소를 담는 배열이다.
+- alist는 웹페이지의 모든 a 요소를 담는 배열이다.
 - alist의 각 원소에 접근해서 style 속성의 color를 'powderblue' 색으로 변경한다.
 
-주간 모드에서의 링크 색깔로 변경하는 코드
+주간 모드의 링크 색깔 변경 코드
 
 ```js
 var alist = document.querySelectorAll('a');
@@ -470,9 +460,7 @@ two();
 
 # 함수: 매개변수와 인자
 
-함수는 입력과 출력으로 이루어진다.
-
-함수 입력 관련 개념
+함수 입력 개념
 
 ```js
 function sum(left, right) {
@@ -502,7 +490,7 @@ sum(2, 4);  // 브라우저 화면에 6 출력
 
 함수는 입력과 출력으로 이루어진다.
 
-함수 출력 관련 개념
+함수 출력 개념
 
 ```js
 function sum(left, right) {
@@ -603,17 +591,18 @@ onclick 속성 값에서 함수를 호출한다.
 ```
 
 - 이전에 사용하던 this를 더이상 nightDayHandler 함수에서 사용할 수 없다.
-  - this가 input 태그를 가리키지 않고 전역객체를 가리킨다.
+  - 함수에서 this가 input 태그를 가리키지 않고 전역객체를 가리킨다.
   - input 태그의 onclick 속성 값에서 사용하던 코드라면 this가 input 태그를 가리킨다.
   - 하지만 이 코드를 따로 함수에 넣었으므로 this는 더이상 input 태그를 가리키지 않고 전역객체를 가리키게 된다.
   - 이해 못해도 넘어가기.
 - this가 input 태그를 가리키게 하기 위해
   - 함수의 매개변수로 self를 선언하고 함수 코드에서 this를 사용했던 부분을 self로 변경한다.
-  - 함수를 호출할 때 인자로 this를 전달한다.
+  - onclick 속성 값에서 함수를 호출할 때 인자로 this를 전달한다.
+  - 매개변수 self에 this가 대입된다. 이때 this는 함수를 호출한 input 태그이다.
 
 # 객체 예고
 
-객체를 정리정돈 도구라고 생각할 수 있다. 객체를 서로 연관된 변수와 서로 연관된 함수를 같은 이름으로 잘 그룹핑해서 잘 정리정돈하기 위한 도구라고 볼 수 있다.
+객체도 배열처럼 정리정돈 도구라고 생각할 수 있다. 객체를 서로 연관된 변수와 서로 연관된 함수를 같은 이름으로 잘 그룹핑해서 잘 정리정돈하기 위한 도구라고 볼 수 있다.
 
 # 객체
 
@@ -633,8 +622,8 @@ coworkers["data scientist"] = "taeho";
 document.write("data scientist: " + coworkers["data scientist"] + "<br>");
 ```
 
-- 객체 리터럴 방식으로 객체를 생성하고 coworkers 변수에 담는다.
-- .(점)이라는 접근 연산자(액세스 오퍼레이터)를 사용해 객체에 담은 데이터를 가져올 수 있다.
+- 객체 리터럴 방식(중괄호)으로 객체를 생성하고 coworkers 변수에 담는다.
+- .(점) 접근 연산자(액세스 오퍼레이터)를 사용해 객체에 담은 데이터를 가져올 수 있다.
 - 접근 연산자를 사용해 객체에 데이터를 담을 수 있다.
 - 또한 데이터 이름에 띄어쓰기가 있는 경우 대괄호와 따옴표를 사용해 객체에 데이터를 담을 수 있다.
 
@@ -655,9 +644,9 @@ for (var key in coworkers) {
 
 - 객체에서 키(key)라는 것은 데이터에 도달할 수 있는 열쇠를 말한다.
 - coworkers 객체에서 키는 "programmer", "designer", "bookkeeper", "data scientist"이다.
-- for문은 coworkers 객체에 있는 키 값들 하나하나를 변수 key에 할당하고, 각 변수 key에 대해 중괄호 내부의 코드를 실행한다.
+- for-in문은 반복마다 coworkers 객체에 있는 키 값들 하나하나를 변수 key에 할당하고, 각 변수 key에 대해 중괄호 내부의 코드를 실행한다.
 - coworkers 객체에 대괄호와 키를 사용해서 키에 해당하는 데이터를 가져올 수 있다.
-  - coworkers["programmer"]는 "egoing" 데이터를 가져온다.
+  - 예를 들어 coworkers["programmer"]는 "egoing" 데이터를 가져온다.
 
 # 객체 프로퍼티와 메소드
 
@@ -685,7 +674,7 @@ coworkers.showAll();
 - 객체에 소속된 변수의 값으로 함수를 지정할 수 있다.
 - 객체에 소속된 변수가 함수이면 그 함수를 메소드라고 한다.
   - showAll 메소드
-- **this**: 객체에 소속된 메소드에서 객체를 가리키는 키워드
+- **this**: 객체에 소속된 메소드에서 this는 객체를 가리키는 키워드이다.
 
 # 객체의 활용
 
@@ -735,7 +724,8 @@ var Body = {
 };
 ```
 
-- Body 객체를 생성하고, body 요소의 폰트 색을 변경하는 setColor 메서드, 배경 색을 변경하는 setBackgroundColor 메서드를 추가한다.
+- Body 객체를 생성한다.
+- body 요소의 폰트 색을 변경하는 setColor 메서드, 배경 색을 변경하는 setBackgroundColor 메서드를 추가한다.
 - 객체의 프로퍼티나 메소드가 여러개라면 ,(콤마)로 구분한다.
 
 ```js
@@ -752,22 +742,23 @@ var Links = {
 };
 ```
 
-- Links 객체를 생성하고, 모든 a 요소의 폰트 색을 변경하는 setColor 메서드를 추가한다.
+- Links 객체를 생성한다.
+- 모든 a 요소의 폰트 색을 변경하는 setColor 메서드를 추가한다.
 
 ```js
 function nightDayHandler(self) {
   if (self.value === 'night') {
-    Body.setBackgroundColor('black');
-    Body.setColor('white');
+    Body.setBackgroundColor('black');  // body 요소의 배경 색 설정
+    Body.setColor('white');            // body 요소의 폰트 색 설정
     self.value = 'day';
 
-    Links.setColor('powderblue');
+    Links.setColor('powderblue');      // a 요소의 폰트 색 설정
   } else {
-    Body.setBackgroundColor('white');
-    Body.setColor('black');
+    Body.setBackgroundColor('white');  // body 요소의 배경 색 설정
+    Body.setColor('black');            // body 요소의 폰트 색 설정
     self.value = 'night';
 
-    Links.setColor('blue');
+    Links.setColor('blue');            // a 요소의 폰트 색 설정
   }
 }
 ```
@@ -845,7 +836,8 @@ function nightDayHandler(self) {
 - 서로 다른 웹페이지에서 같은 자바스크립트 파일을 사용한다면 이 웹페이지가 같은 로직을 따른다는 것을 알 수 있다.
   - 가독성이 좋아지고 명확해진다.
 - 코드의 의미를 파일 이름을 통해 알 수 있다.
-- 한번 웹브라우저에 다운로드된 파일은 보통 컴퓨터에 저장된다. 그리고 한번 저장된 파일은 웹브라우저가 읽어서 네트워크를 통하지 않게 한다.
+- 한번 웹브라우저에 다운로드된 파일은 보통 컴퓨터에 저장된다.
+  - 한번 저장된 파일은 웹브라우저가 읽어서 네트워크를 통하지 않게 한다.
   - 네트워크 트래픽을 절감할 수 있다.
   - 웹페이지를 훨씬 더 빠르게 화면에 표시할 수 있다.
 - 라이브러리를 프로젝트에 가져오는 데 중요한 역할을 한다.
@@ -854,17 +846,17 @@ function nightDayHandler(self) {
 
 라이브러리
 
-- 만들고자하는 프로그램에 필요한 부품이 되는 소프트웨어를 잘 정리정돈해놓은, 재사용하기 쉽도록 되어 있는 소프트웨어
-- 라이브러리의 경우, 만들어진 소프트웨어를 끌어와서 사용하는 느낌.
+- 만들고자하는 프로그램에 필요한 부품이 되는 소프트웨어를 잘 정리정돈해놓은, 재사용하기 쉽도록 되어 있는 소프트웨어를 라이브러라고 볼 수 있다.
+- 라이브러리의 경우, 만들어진 소프트웨어를 가져와서 사용하는 느낌이라고 볼 수 있다.
 
 프레임워크
 
-- 만들고자 하는 것이 무엇이냐에 따라 그것을 만들려고 할 때 언제나 필요한 공통적인 것이 있고,
-- 만들고자 하는 것에 대한 기획 의도에 따라서 달라지는 부분이 있다.
+- 만들고자 하는 것이 무엇이냐에 따라 그것을 만들려고 할 때 언제나 필요한 공통적인 것이 있다.
+- 그리고 만들고자 하는 것에 대한 기획 의도에 따라서 달라지는 부분이 있다.
 - 그 중에서 공통적인 부분은 프레임워크라는 것이 만들어놓고
 - 만들고자 하는 것의 기능에 따라, 또는 개성에 따라 달라지는 부분만 수정하여
 - 만들고자 하는 것을 처음부터 끝까지 모두 만들지 않도록 해주는 반제품과 같은 것을 프레임워크라고 할 수 있다.
-- 프레임워크의 경우, 우리가 프레임워크 안에 들어가서 작업하는 느낌.
+- 프레임워크의 경우, 우리가 프레임워크 안에 들어가서 작업하는 느낌이라고 볼 수 있다.
 
 결국 라이브러리와 프레임워크는 협력하는 모델이다.
 
@@ -872,10 +864,14 @@ function nightDayHandler(self) {
 
 jQuery 라이브러리를 다운로드 받아 사용할 수도 있고, CDN을 통해 사용할 수도 있다.
 
-구글 CDN을 사용하는 경우, script src를 사용해 jQuery를 사용하는 방법.
+구글 CDN을 사용하는 경우
+
+  - head 태그에서 script src를 사용해 jQuery를 사용할 수 있다.
 
 ```html
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
 ```
 
 이전 코드
@@ -906,12 +902,12 @@ var Links = {
 
 - $('a'): 웹페이지의 모든 a 태그를 jQuery로 제어하겠다.
 - css 메소드를 사용해 모든 a 태그의 color 속성을 변경한다.
+- 이전 코드보다 간결하고 가독성이 좋아졌다.
 
 # UI vs. API
 
-UI: User Interface
-
-API: Application Programming Interface
+- UI: User Interface
+- API: Application Programming Interface
 
 ```html
 <input type="button" value="Click me" onclick="alert('Hello world')">
