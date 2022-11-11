@@ -12,3 +12,4 @@
   - [WEB1 - HTML & Internet](https://github.com/devyoon56/TIL/blob/main/opentutorials/web/web1.md)
   - [WEB2 - CSS](https://github.com/devyoon56/TIL/blob/main/opentutorials/web/web2.md)
   - [WEB2 - JavaScript](https://github.com/devyoon56/TIL/blob/main/opentutorials/web/web2js.md)
+  - [WEB2 - Node.js](https://github.com/devyoon56/TIL/blob/main/opentutorials/web/web2node.md)
