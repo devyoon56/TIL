@@ -11,10 +11,10 @@ var http = require("http");
 var fs = require("fs");
 var app = http.createServer(function (request, response) {
   var url = request.url;
-  if (request.url == "/") {
+  if (url == "/") {
     url = "/index.html";
   }
-  if (request.url == "/favicon.ico") {
+  if (url == "/favicon.ico") {
     response.writeHead(404);
     response.end();
     return;
@@ -28,13 +28,15 @@ app.listen(3000);
 - 사용자에게 전송할 데이터를 생성하는 코드이다.
 - 지금은 대략적으로만 이렇게 알고 넘어가자.
 
-main.js 자바스크립트 파일에 코드를 넣고 터미널에서 해당 파일을 Node.js로 실행시킨다.
+코드를 Node.js로 실행하는 방법
+
+- main.js 자바스크립트 파일에 코드를 넣고 터미널에서 해당 파일을 Node.js로 실행시킨다.
 
 ```
 node main.js
 ```
 
-웹브라우저 주소창에 localhost:3000 을 입력하여 결과를 확인한다.
+- 웹브라우저 주소창에 localhost:3000 을 입력하여 결과를 확인한다.
 
 # 자바스크립트 문법 - 템플릿 리터럴
 
@@ -53,24 +55,25 @@ URL 샘플
 
 http://opentutorials.org:3000/main?id=HTML&page=12
 
-  - **http**
+  - `http`
     - protocol, 프로토콜, 통신 규칙으로 http를 사용한다.
     - 사용자가 서버에 접속할 때 어떤 방식으로 통신할 것인지를 나타낸다.
     - http는 웹브라우저와 웹서버가 서로 데이터를 주고 받기 위해 만들어진 통신 규칙이다.
-  - **opentutorials.org**
+  - `opentutorials.org`
     - host 또는 domain name
     - 인터넷에 연결된 특정 컴퓨터의 주소이다.
-  - **3000**
+  - `3000`
     - 포트 번호
-    - 한 대의 컴퓨터에 여러 서버가 있는 경우 클라이언트가 서버에 접속했을 때 어떤 서버와 통신할지가 애매하다.
-    - 클라이언트가 서버에 접속할 때 포트번호를 명시하면 해당 포트번호에 연결된 서버와 통신하게 된다.
-  - **main**
+    - 한 대의 컴퓨터에 서버가 여러 개 있는 경우 클라이언트가 어떤 서버와 통신할지가 애매한 경우가 발생한다.
+    - 클라이언트가 서버에 접속할 때 포트 번호를 명시하면 해당 포트번호에 연결된 서버와 통신한다.
+  - `main`
     - path
     - 컴퓨터 안에 있는 어떤 디렉터리의 어떤 파일인지를 가리킨다.
-  - **?id=HTML&page=12**
-    - query string
-    - Query string을 사용해 서버에게 정보를 전달한다. 이 정보는 id 값이 HTML이고 page 값이 12이라는 것을 나타낸다.
-    - query string은 물음표(?)로 시작하는 걸로 약속되어 있다.
+  - `?id=HTML&page=12`
+    - Query string
+    - Query string을 사용해 클라이언트가 서버에게 정보를 전달한다.
+    - `?id=HTML&page=12`는 id 값이 HTML이고 page 값이 12이라는 것을 나타낸다.
+    - Query string은 물음표(?)로 시작하는 걸로 약속되어 있다.
     - 값과 값은 앰퍼센드(&)를 써서 구분하기로 약속되어 있다.
     - 값의 이름과 값은 =로 구분하기로 약속되어 있다.
 
@@ -96,6 +99,8 @@ var url = require("url");
 
 var app = http.createServer(function (request, response) {
   var _url = request.url;
+
+  // Query string을 추출하고 출력하기
   var queryData = url.parse(_url, true).query;
   console.log(queryData.id);
 
@@ -117,14 +122,14 @@ nodejs로 웹 애플리케이션을 실행하고, 웹브라우저 주소창에 l
 
 코드 설명
 
-- 결과를 확인하면 에러가 발생하지만, queryData가 객체인 것을 확인할 수 있다.
+- 결과를 확인하면 에러가 발생하지만, `queryData`가 객체인 것을 확인할 수 있다.
   - { id: 'HTML' }
   - queryData에는 query string이 객체 형식으로 들어온다는 것을 알 수 있다.
   - queryData.id 확인 결과 HTML인 것을 알 수 있다.
-- **response.end(queryData.id)**
+- `response.end(queryData.id)`
   - query string에 따라 다른 정보를 웹페이지에 출력한다.
   - id=HTML 이면 단순히 HTML이 출력된다.
-  - id=CSs 이면 단순히 CSS가 출력된다.
+  - id=CSS 이면 단순히 CSS가 출력된다.
 
 # App 제작 - 동적인 웹페이지 만들기
 
@@ -180,13 +185,14 @@ app.listen(3000);
 코드 설명
 
 ```js
+var queryData = url.parse(_url, true).query;
 var title = queryData.id;
 ```
 
 - queryData는 URL의 query string을 객체 형식으로 저장한다.
 - queryData 객체의 id의 값을 title 변수에 저장한다.
   - URL의 query string에서 값 이름을 id로 사용하므로, title 변수의 값은 query string에서의 id의 값이다.
-  - 예를 들어 URL을 localhost:3000/?id=HTML 으로 사용하면 title의 값은 HTML이다.
+  - 예를 들어 URL을 localhost:3000/?id=HTML 으로 사용하면 title의 값은 query string인 id의 값 HTML이다.
 - template 변수에 저장한 템플릿 리터럴에서 ${} 내부에 title 변수를 사용한다.
 
 ```js
@@ -261,7 +267,7 @@ fs.readFile(`data/${queryData.id}`, "utf8", function (err, description) {
 ```
 
 - Node.js의 파일 읽기 기능을 사용한다.
-- 첫 번째 인자: `data/${queryData.id}`
+- readFile 메서드의 첫 번째 인자: `data/${queryData.id}`
   - 첫 번째 인자로 읽을 파일의 경로를 전달한다.
   - data 폴더 내부에 저장한 파일을 사용한다.
   - query string 객체의 id 값이 HTML, CSS, JavaScript이다.
@@ -320,7 +326,7 @@ var app = http.createServer(function (request, response) {
 app.listen(3000);
 ```
 
-URL 분석 코드의 결과를 확인한다.
+URL 분석 결과를 확인한다.
 
 ```js
 console.log(url.parse(_url, true));
@@ -359,7 +365,6 @@ if (pathname === "/") {
   // 사용자가 루트로 접속한 경우와
   // 웹앱이 지원하는 query string을 사용해서 접속한 경우
   // 웹페이지를 완성해서 표시
-
   fs.readFile(`data/${queryData.id}`, "utf8", function (err, description) {
     var template = `
       <!doctype html>
@@ -435,3 +440,345 @@ if (pathname === "/") {
 - `queryData`에 아무것도 저장되지 않는 경우 `id` 값을 가져오면 `undefined`를 얻는다.
 - 이것을 확인해서 사용자가 루트로 접속한 경우 홈페이지를 완성해서 표시한다.
 - 또한 웹앱이 지원하는 query string을 사용해서 접속한 경우 웹페이지를 완성해서 표시한다.
+
+# Node.js에서 파일 목록 알아내기
+
+```js
+// 코드 실행 위치 기준으로 테스트폴더 경로 작성
+var testFolder = "./data";
+var fs = require("fs");
+
+fs.readdir(testFolder, function (error, filelist) {
+  console.log(filelist);
+});
+```
+
+실행 결과
+
+- `[ 'CSS', 'HTML', 'JavaScript' ]`
+- 폴더 내부에 존재하는 파일들의 이름을 배열 형태로 반환하는데, 두 번째 인자로 전달한 함수의 filelist 매개변수에 대입된다.
+
+# App 제작 - 글목록 출력하기
+
+data 폴더에 파일을 추가하거나 삭제해도 웹페이지에서 그 변경사항이 ul, li 태그에 자동으로 반영되지 않는 문제점이 있다.
+
+파일 목록을 읽어서 ul, li 태그를 동적으로 생성하고 글목록을 출력할 수 있다.
+
+```js
+fs.readdir("./data", function (err, filelist) {
+  var title = "Welcome";
+  var description = "Hello, Node.js";
+  var list = "<ul>";
+  var i = 0;
+  while (i < filelist.length) {
+    list =
+      list + `<li><a href="/?id=${filelist[i]}">${filelist[i]}</a></li>`;
+    i += 1;
+  }
+  list = list + "</ul>";
+
+  var template = `
+    <!doctype html>
+    <html>
+    <head>
+      <title>WEB1 - ${title}</title>
+      <meta charset="utf-8">
+    </head>
+    <body>
+      <h1><a href="/">WEB</a></h1>
+      ${list}
+      <h2>${title}</h2>
+      <p>${description}</p>
+    </body>
+    </html>
+  `;
+  response.writeHead(200);
+  response.end(template);
+});
+```
+
+- `list` 변수에 여는 ul 태그를 추가한다.
+- 파일 목록과 반복문을 이용하여 li 태그를 추가한다.
+  - Query string id의 값과 a 태그의 컨텐츠로 `filelist`의 값을 사용한다.
+  - 글목록을 data 폴더의 파일 목록에 맞게 동적으로 생성한다.
+- 마지막으로 닫는 ul 태그를 추가한다.
+- `list` 변수를 웹페이지에서 글목록을 출력하고자 하는 곳에 배치한다.
+
+이제 data 폴더에 파일을 추가하고 파일 내용을 작성하면, 추가한 파일에 대한 글목록이 웹페이지에 자동으로 추가되고 파일 내용이 본문으로 출력된다.
+
+# App 제작 - 함수를 이용해서 정리정돈하기
+
+함수를 이용해서 코드를 정리정돈한다.
+
+완성된 웹페이지를 출력하기 위한 템플릿 코드를 반환하는 함수
+
+```js
+function templateHTML(title, list, body) {
+  return `
+    <!doctype html>
+    <html>
+    <head>
+      <title>WEB1 - ${title}</title>
+      <meta charset="utf-8">
+    </head>
+    <body>
+      <h1><a href="/">WEB</a></h1>
+      ${list}
+      ${body}
+    </body>
+    </html>
+  `;
+}
+```
+
+파일 목록을 사용하여 ul, li 태그를 동적으로 생성하는 함수
+
+```js
+function templateList(filelist) {
+  var list = "<ul>";
+  var i = 0;
+  while (i < filelist.length) {
+    list = list + `<li><a href="/?id=${filelist[i]}">${filelist[i]}</a></li>`;
+    i += 1;
+  }
+  list = list + "</ul>";
+
+  return list;
+}
+```
+
+템플릿과 리스트를 사용하고 싶은 곳에서 호출한다.
+
+```js
+if (pathname === "/") {
+  if (queryData.id === undefined) {
+    // 사용자가 루트로 접속한 경우 웹페이지를 완성해서 표시
+    fs.readdir("./data", function (err, filelist) {
+      var title = "Welcome";
+      var description = "Hello, Node.js";
+      var list = templateList(filelist);
+      var template = templateHTML(
+        title,
+        list,
+        `<h2>${title}</h2>${description}`
+      );
+      response.writeHead(200);
+      response.end(template);
+    });
+  } else {
+    // 웹앱이 지원하는 query string을 사용해서 접속한 경우 웹페이지를 완성해서 표시
+    fs.readdir("./data", function (err, filelist) {
+      fs.readFile(
+        `data/${queryData.id}`,
+        "utf8",
+        function (err, description) {
+          var title = queryData.id;
+          var list = templateList(filelist);
+          var template = templateHTML(
+            title,
+            list,
+            `<h2>${title}</h2>${description}`
+          );
+          response.writeHead(200);
+          response.end(template);
+        }
+      );
+    });
+  }
+}
+```
+
+- 코드 중복이 제거되었다.
+- 코드 가독성이 좋아졌다.
+
+# Node.js에서 동기와 비동기1
+
+현실에서 어떤 작업을 한다고 생각해 보자.
+
+동기synchronous적으로 일을 처리하기
+
+- 작업 A를 시작한다.
+- 작업 A를 끝내고 작업 B를 시작한다.
+- 작업 B를 끝내고 작업 C를 시작한다.
+- 직렬적인 처리 방식
+
+비동기asynchronous적으로 일을 처리하기
+
+- 작업 A를 시작한다.
+- 작업 A를 누군가에게 넘기고 작업 A를 종료하면 나에게 알려줄 것을 말한다.
+- 곧바로 작업 B를 시작한다.
+- 현재 작업 A와 작업 B는 동시에 진행 중이다.
+- 병렬적인 처리 방식
+
+Node.js는 비동기적으로 일을 처리하기 위한 도구를 가지고 있다.
+
+# Node.js에서 동기와 비동기2
+
+동기와 비동기가 코드 레벨에서 어떤 차이가 있는지 알아 보자.
+
+파일 내용을 읽어 출력하는 동기 코드(`readFileSync`)
+
+```js
+var fs = require("fs");
+console.log("A");
+var result = fs.readFileSync("syntax/sample.txt", "utf8");
+console.log(result);
+console.log("C");
+```
+
+```
+// 실행 결과
+A
+B
+C
+```
+
+- sample.txt의 파일 내용은 B이다.
+- 코드 실행 결과 A, B, C가 출력된다.
+- `readFileSync` 메서드
+  - 첫 번째 인자로 전달한 파일 경로에서 파일 내용을 읽는다.
+  - 파일 내용을 반환한다.
+- `readFileSync` 메서드 실행 결과를 `result` 변수에 대입한다.
+- 코드를 작성한 순서대로 결과가 출력되는 것을 알 수 있다.
+
+파일 내용을 읽어 출력하는 비동기 코드(`readFile`)
+
+```js
+var fs = require("fs");
+console.log("A");
+fs.readFile("syntax/sample.txt", "utf8", function (err, result) {
+  console.log(result);
+});
+console.log("C");
+```
+
+```
+// 실행 결과
+A
+C
+B
+```
+
+- 코드 실행 결과 A, C, B가 출력된다.
+- 코드를 작성한 순서대로 결과가 출력되지 않는다.
+- `readFile` 메서드
+  - 첫 번째 인자로 전달한 파일 경로에서 파일 내용을 읽는다.
+  - 파일 내용을 모두 읽으면, 세 번째 인자로 전달한 함수의 두 번째 인자 `result`에 읽은 파일 내용을 전달하면서, 세 번째 인자로 전달한 함수를 실행한다.
+  - 세 번째 인자로 전달한 함수 실행 결과로 B가 출력된다.
+- `readFile` 메서드는 비동기로 실행되므로 메서드의 실행 결과를 기다리지 않고 곧바로 아래 코드를 실행한다.
+- 따라서 C가 먼저 출력되고, `readFile` 메서드가 실행을 마치면 세 번째 인자로 전달한 함수가 실행되면서 B가 출력된다.
+
+# JavaScript - Callback
+
+'A'를 출력하는 간단한 함수 a이다.
+
+```js
+function a() {
+  console.log('A');
+}
+a();
+```
+
+함수 a와 같지만 형식이 다른 코드가 있다.
+
+```js
+var a = function () {
+  console.log('A');
+};
+a();
+```
+
+- 이 코드는 변수 a의 값으로서 함수를 정의한다.
+- 이것은 **자바스크립트에서 함수는 값이다**라는 것을 의미한다.
+
+실행 시간이 오래 걸리는 `slowfunc`라는 함수가 있다.
+
+```js
+var a = function () {
+  console.log('A');
+};
+
+function slowfunc(callback) {
+  // ...
+  callback();
+}
+
+slowfunc(a);
+```
+
+- `slowfunc` 함수를 모두 실행한 뒤에 어떤 함수를 실행하기 위해 인자로 콜백을 받는다.
+  - 인자로 전달받은 콜백을 마지막에 실행한다.
+- `slowfunc` 함수를 실행하면서 `변수 a`를 전달한다.
+  - `callback` 매개변수는 `변수 a`가 가리키는 함수를 가리킨다.
+  - `slowfunc` 함수 내부에서 `callback`을 호출하면 `변수 a`가 가리키는 함수가 호출된다.
+
+# Node.js의 패키지 매니저와 PM2
+
+패키지
+
+- 소프트웨어를 부르는 여러 표현들 중의 하나이다.
+- 독립적으로 실행되는 프로그램도 패키지라고 할 수 있다.
+- 어떤 프로그램 안에서 부품으로 사용되는 작은 프로그램도 패키지라고 할 수 있다.
+
+패키지 매니저
+
+- 패키지를 관리(생성, 설치, 업데이트, 삭제)하는 프로그램이다.
+
+NPM
+
+- Node.js에서 가장 광범위하게 사용되는 패키지 매니저
+- Node.js로 만들어진 프로그램들을 쉽게 설치할 수 있게 도와줌
+
+PM2
+
+- 실행 중인 프로세스가 예기치 못하게 종료될 수 있다.
+  - PM2는 프로세스를 감시하다가 프로세스가 종료되면 다시 실행해주는 역할을 한다.
+- 프로그램을 수정하면 Node.js를 종료하고 다시 실행해야 변경사항이 반영되었다.
+  - PM2는 프로그램이 수정되는지를 감시하다가 수정되면 자동으로 프로그램을 껐다가 다시 실행시켜서 수동으로 종료하고 다시 실행해야 하는 불편함을 제거해준다.
+
+npm으로 PM2를 설치하기
+
+```
+npm install pm2 -g
+```
+
+PM2로 main.js 실행하기
+
+```
+pm2 start main.js
+```
+
+PM2로 실행 중인 프로그램 확인하기(별도 창에서)
+
+```
+pm2 monit
+```
+
+PM2로 실행 중인 프로세스의 리스트 확인하기
+
+```
+pm2 list
+```
+
+PM2로 실행 중인 프로세스 종료하기
+
+```
+pm2 stop main
+```
+
+- main: 프로세스 리스트로 확인한 프로세스의 이름
+
+프로그램 변경사항을 감시하고 변경사항이 있으면 자동으로 프로그램 다시 시작하기
+
+```
+pm2 start main.js --watch
+```
+
+프로그램에 발생한 에러와 프로그램 변경사항을 저장했다는 것을 화면에 출력하기
+
+```
+pm2 log
+```
+
+# HTML form
+
