@@ -782,3 +782,131 @@ pm2 log
 
 # HTML form
 
+사용자가 웹을 통해 컨텐츠를 생성하고 수정하고 삭제하기 위해 서버로 데이터를 전송하는 방식인 **HTML form**이 있다.
+
+```html
+<form action="http://localhost:3000/process_create">
+  <p><input type="text" name="title" /></p>
+  <p>
+    <textarea name="description"></textarea>
+  </p>
+  <p>
+    <input type="submit" />
+  </p>
+</form>
+```
+
+- `form` 태그는 form 태그 안에 있는 각각의 컨트롤들에 사용자가 입력한 정보를 submit 버튼을 눌렀을 때, form 태그의 action 속성이 가리키는 서버로 query string의 형태로 데이터를 전송하는 HTML의 기능이다.
+- name 속성이 `title`인 input 태그와 name 속성이 `description`인 textarea 태그에 어떤 값을 입력하고 submit 버튼을 클릭했을 때
+  - URL은 `http://localhost:3000/process_create?title=hi&description=lorem` 인 것을 확인할 수 있다.
+  - 이런 URL은 좋지 않다.
+  - 데이터를 전송할 때 주소에 데이터가 포함되어 있다면, 해당 주소를 누군가에게 복사해서 전달했을 때, 그 사람이 전달받은 주소를 클릭해서 들어오면 서버에 있는 정보가 수정되거나 삭제되거나 생성될 수 있다.
+  - 서버에서 데이터를 가져올 때는 query string을 사용한다.
+  - 서버에 데이터를 생성, 수정, 삭제하는 것과 같은 행위를 할 때는 필요한 데이터를 URL로 보내는 것은 절대 안됀다.
+
+서버에 데이터를 생성, 수정, 삭제하는 것과 같은 행위를 할 때는 form 태그의 `method` 속성을 사용한다.
+
+```html
+<form action="http://localhost:3000/process_create" method="post">
+  <p><input type="text" name="title" /></p>
+  <p>
+    <textarea name="description"></textarea>
+  </p>
+  <p>
+    <input type="submit" />
+  </p>
+</form>
+```
+
+- input 태그와 textarea 태그에 값을 입력하고 submit 버튼을 클릭했을 떄
+  - URL은 `http://localhost:3000/process_create` 인 것을 확인할 수 있다.
+  - Query string은 보이지 않는데, 서버로 은밀하게 전송하기 때문이다.
+
+# App 제작 - 글생성 UI 만들기
+
+글목록 밑에 글을 생성하는 페이지로 이동하는 링크를 추가한다.
+
+```js
+function templateHTML(title, list, body) {
+  return `
+    <!doctype html>
+    <html>
+    <head>
+      <title>WEB2 - ${title}</title>
+      <meta charset="utf-8">
+    </head>
+    <body>
+      <h1><a href="/">WEB</a></h1>
+      ${list}
+      <a href="/create">create</a>
+      ${body}
+    </body>
+    </html>
+  `;
+}
+```
+
+- 추가한 a 태그의 href 속성 값이 `/create`이다.
+- 추가한 a 태그를 클릭했을 때 URL은 `http://localhost:3000/create` 이다.
+
+추가한 a 태그를 클릭했을 때 URL 분석 결과를 확인하면 다음과 같다.
+
+`
+Url {
+protocol: null,
+slashes: null,
+auth: null,
+host: null,
+port: null,
+hostname: null,
+hash: null,
+search: null,
+query: [Object: null prototype] {},
+pathname: '/create',
+path: '/create',
+href: '/create'
+}
+`
+
+- `pathname`을 이용하여 글생성 페이지로 이동했다는 것을 확인할 수 있다.
+
+사용자가 글생성 페이지로 이동한 경우 웹페이지를 완성해서 표시하는 코드를 추가한다.
+
+```js
+if (pathname === "/") {
+  ...
+} else if (pathname === "/create") {
+  // 사용자가 글생성 페이지로 이동한 경우 웹페이지를 완성해서 표시
+  fs.readdir("./data", function (err, filelist) {
+    var title = "WEB - create";
+    var list = templateList(filelist);
+    var template = templateHTML(
+      title,
+      list,
+      `<form action="http://localhost:3000/process_create" method="post">
+        <p><input type="text" name="title" placeholder="title"/></p>
+        <p>
+          <textarea name="description" placeholder="description"></textarea>
+        </p>
+        <p>
+          <input type="submit" />
+        </p>
+      </form>`
+    );
+    response.writeHead(200);
+    response.end(template);
+  });
+} else {
+  ...
+}
+```
+
+글생성 페이지에서 입력한 값이 서버로 전송되는 것을 확인하기(개발자 도구)
+
+- input 태그와 textarea 태그에 값을 입력하고 submit 버튼을 클릭
+- Network 메뉴에서 process_create 항목 클릭
+- Payload 메뉴 클릭
+  - title: (input 태그에 입력한 값)
+  - description: (textarea 태그에 입력한 값)
+
+# App 제작 - POST 방식으로 전송된 데이터 받기
