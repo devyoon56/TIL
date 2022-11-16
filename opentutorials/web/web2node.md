@@ -785,7 +785,7 @@ pm2 log
 사용자가 웹을 통해 컨텐츠를 생성하고 수정하고 삭제하기 위해 서버로 데이터를 전송하는 방식인 **HTML form**이 있다.
 
 ```html
-<form action="http://localhost:3000/process_create">
+<form action="http://localhost:3000/create_process">
   <p><input type="text" name="title" /></p>
   <p>
     <textarea name="description"></textarea>
@@ -798,7 +798,7 @@ pm2 log
 
 - `form` 태그는 form 태그 안에 있는 각각의 컨트롤들에 사용자가 입력한 정보를 submit 버튼을 눌렀을 때, form 태그의 action 속성이 가리키는 서버로 query string의 형태로 데이터를 전송하는 HTML의 기능이다.
 - name 속성이 `title`인 input 태그와 name 속성이 `description`인 textarea 태그에 어떤 값을 입력하고 submit 버튼을 클릭했을 때
-  - URL은 `http://localhost:3000/process_create?title=hi&description=lorem` 인 것을 확인할 수 있다.
+  - URL은 `http://localhost:3000/create_process?title=hi&description=lorem` 인 것을 확인할 수 있다.
   - 이런 URL은 좋지 않다.
   - 데이터를 전송할 때 주소에 데이터가 포함되어 있다면, 해당 주소를 누군가에게 복사해서 전달했을 때, 그 사람이 전달받은 주소를 클릭해서 들어오면 서버에 있는 정보가 수정되거나 삭제되거나 생성될 수 있다.
   - 서버에서 데이터를 가져올 때는 query string을 사용한다.
@@ -807,7 +807,7 @@ pm2 log
 서버에 데이터를 생성, 수정, 삭제하는 것과 같은 행위를 할 때는 form 태그의 `method` 속성을 사용한다.
 
 ```html
-<form action="http://localhost:3000/process_create" method="post">
+<form action="http://localhost:3000/create_process" method="post">
   <p><input type="text" name="title" /></p>
   <p>
     <textarea name="description"></textarea>
@@ -819,7 +819,7 @@ pm2 log
 ```
 
 - input 태그와 textarea 태그에 값을 입력하고 submit 버튼을 클릭했을 떄
-  - URL은 `http://localhost:3000/process_create` 인 것을 확인할 수 있다.
+  - URL은 `http://localhost:3000/create_process` 인 것을 확인할 수 있다.
   - Query string은 보이지 않는데, 서버로 은밀하게 전송하기 때문이다.
 
 # App 제작 - 글생성 UI 만들기
@@ -883,7 +883,7 @@ if (pathname === "/") {
     var template = templateHTML(
       title,
       list,
-      `<form action="http://localhost:3000/process_create" method="post">
+      `<form action="http://localhost:3000/create_process" method="post">
         <p><input type="text" name="title" placeholder="title"/></p>
         <p>
           <textarea name="description" placeholder="description"></textarea>
@@ -904,9 +904,599 @@ if (pathname === "/") {
 글생성 페이지에서 입력한 값이 서버로 전송되는 것을 확인하기(개발자 도구)
 
 - input 태그와 textarea 태그에 값을 입력하고 submit 버튼을 클릭
-- Network 메뉴에서 process_create 항목 클릭
+- Network 메뉴에서 create_process 항목 클릭
 - Payload 메뉴 클릭
   - title: (input 태그에 입력한 값)
   - description: (textarea 태그에 입력한 값)
 
 # App 제작 - POST 방식으로 전송된 데이터 받기
+
+form 태그에서 post 방식으로 전송한 데이터를 가져와야 한다.
+
+form 태그의 action 속성 값에서 사용한 URL에서 pathname을 이용한다.
+
+```js
+if (pathname === "/") {
+  ...
+} else if (pathname === "/create") {
+  // 사용자가 글생성 페이지로 이동한 경우 웹페이지를 완성해서 표시
+  ...
+} else if (pathname === "/create_process") {
+  var body = "";
+  request.on("data", function (data) {
+    body = body + data;
+  });
+  request.on("end", function () {
+    var post = qs.parse(body);
+    var title = post.title;
+    var description = post.description;
+    console.log(post);
+  });
+  response.writeHead(200);
+  response.end("Success!");
+} else {
+  ...
+}
+```
+
+웹브라우저가 post 방식으로 데이터를 전송할 때 데이터가 많으면 프로그램이 종료되는 등의 문제가 발생한다. Node.js에서는 post 방식으로 전송되는 데이터가 많을 때 다음과 같은 처리 방법을 제공한다.
+
+```js
+var body = "";
+request.on("data", function (data) {
+  body = body + data;
+});
+```
+
+- 총 데이터의 조각들을 수신하고, 데이터 조각을 수신할 때마다 서버는 콜백 함수를 호출하도록 약속되어 있다.
+- 그리고 콜백 함수를 호출할 때 data 매개변수를 통해 수신한 데이터를 인자로 넘긴다.
+- `body = body + data`
+  - body 변수에 수신한 데이터를 추가한다.
+
+데이터 조각들을 수신하다가 더이상 수신할 데이터가 없으면 "end" 다음의 콜백 함수를 호출하도록 약속되어 있다. "end" 다음의 콜백 함수가 호출된다면 데이터 수신이 끝났다라고 생각할 수 있다.
+
+```js
+var qs = require("querystring");
+...
+request.on("end", function () {
+  var post = qs.parse(body);
+  var title = post.title;
+  var description = post.description;
+  console.log(post);
+});
+```
+
+- `querystring` 모듈의 `parse` 함수를 사용해서 수신한 데이터를 객체화할 수 있다.
+  - form 태그를 통해 전송한 데이터를 개발자 도구에서 확인하면 다음과 같다.
+    - title: (input 태그에 입력한 값)
+    - description: (textarea 태그에 입력한 값)
+  - 이 데이터가 객체화되어 `post` 변수에 저장된다.
+  - `title`, `description` 변수에 각각 저장한다.
+
+# App 제작 - 파일생성과 리다이렉션
+
+POST 방식으로 전송한 데이터를 data 디렉터리 안에 파일 형태로 저장하는 방법에 대해 알아보자.
+
+```js
+request.on("end", function () {
+  var post = qs.parse(body);
+  var title = post.title;
+  var description = post.description;
+
+  fs.writeFile(`data/${title}`, description, "utf8", function (err) {
+    response.writeHead(200);
+    response.end("Success!");
+  });
+});
+```
+
+- `File system` 모듈의 `writeFile` 함수를 사용한다.
+- data 디렉터리 안에 파일을 저장한다.
+  - 파일이름: `title`
+  - 파일내용: `description`
+- 파일 저장 작업이 끝나면 네 번째 인자로 전달한 콜백 함수가 실행되면서 Success! 메시지가 웹페이지에 출력된다.
+
+파일로 저장하고 나면 웹페이지에 단순히 Success! 라는 메시지만 출력되는데, 사용자 입장에서 당황스러울 수 있다. 따라서, 사용자를 사용자가 생성한 파일을 볼 수 있는 웹페이지로 이동시키려고 한다.
+
+- 이것을 `리다이렉션`이라고 한다.
+- `리다이렉션`은 사용자가 어떤 페이지에 접속했을 때 내부 처리 과정을 통해 다른 페이지로 튕겨내는 것을 말한다.
+
+```js
+request.on("end", function () {
+  var post = qs.parse(body);
+  var title = post.title;
+  var description = post.description;
+
+  fs.writeFile(`data/${title}`, description, "utf8", function (err) {
+    response.writeHead(302, { Location: `/?id=${title}` });
+    response.end();
+  });
+});
+```
+
+- `response.writeHead(302, ...);`
+  - 302: 페이지를 리다이렉션한다.
+
+# App 제작 - 글수정: 수정 링크 생성
+
+글을 수정할 수 있는 링크를 생성한다. 먼저 HTML 템플릿을 반환하는 `templateHTML` 함수를 수정한다.
+
+```js
+function templateHTML(title, list, body, control) {
+  return `
+    <!doctype html>
+    <html>
+    <head>
+      <title>WEB2 - ${title}</title>
+      <meta charset="utf-8">
+    </head>
+    <body>
+      <h1><a href="/">WEB</a></h1>
+      ${list}
+      ${control}
+      ${body}
+    </body>
+    </html>
+  `;
+}
+```
+
+- 기존의 a 태그가 위치하던 부분을 control 매개변수와 ${}를 사용하여 교체하였다.
+
+모든 웹페이지에서 글수정 링크를 보여주는 것이 아니라 query string을 주소에 포함하는 웹페이지에 대해서만 글수정 링크를 보여주려고 한다.
+
+```js
+if (pathname === "/") {
+  if (queryData.id === undefined) {
+    // 사용자가 루트로 접속한 경우 웹페이지를 완성해서 표시
+    fs.readdir("./data", function (err, filelist) {
+      var title = "Welcome";
+      var description = "Hello, Node.js";
+      var list = templateList(filelist);
+      var template = templateHTML(
+        title,
+        list,
+        `<h2>${title}</h2>${description}`,
+        `<a href="/create">create</a>`
+      );
+      response.writeHead(200);
+      response.end(template);
+    });
+  } else {
+    // 웹앱이 지원하는 query string을 사용해서 접속한 경우 웹페이지를 완성해서 표시
+    fs.readdir("./data", function (err, filelist) {
+      fs.readFile(
+        `data/${queryData.id}`,
+        "utf8",
+        function (err, description) {
+          var title = queryData.id;
+          var list = templateList(filelist);
+          var template = templateHTML(
+            title,
+            list,
+            `<h2>${title}</h2>${description}`,
+            `<a href="/create">create</a> <a href="/update?id=${title}">update</a>`
+          );
+          response.writeHead(200);
+          response.end(template);
+        }
+      );
+    });
+  }
+}
+```
+
+- 루트로 접속한 경우에는 글생성 링크만 추가한다.
+- Query string을 포함하는 웹페이지에 접속한 경우에는 글생성 링크 뿐만 아니라 글수정 링크까지 추가한다.
+  - templateHTML 함수 호출 시 전달하는 네 번째 인자에서 차이가 있다.
+  - 글수정 링크: `<a href="/update?id=${title}">update</a>`
+    - pathname을 /update로, query string의 경우 id에 대한 값을 title로 설정하였다.
+
+# App 제작 - 글수정: 수정할 정보 전송
+
+글수정 링크를 클릭했을 때 보여질 화면을 만들 차례다. 이 화면을 만들기 위해 두 가지가 필요하다.
+
+1. form 태그
+2. 수정하고자 하는 데이터를 form에 미리 넣어두어야 함
+
+```js
+else if (pathname === "/update") {
+  fs.readdir("./data", function (err, filelist) {
+    fs.readFile(`data/${queryData.id}`, "utf8", function (err, description) {
+      var title = queryData.id;
+      var list = templateList(filelist);
+      var template = templateHTML(
+        title,
+        list,
+        `<form action="/update_process" method="post">
+          <input type="hidden" name="id" value="${title}">
+          <p>
+            <input type="text" name="title" placeholder="title" value="${title}"/>
+          </p>
+          <p>
+            <textarea name="description" placeholder="description">${description}</textarea>
+          </p>
+          <p>
+            <input type="submit" />
+          </p>
+        </form>`,
+        `<a href="/create">create</a> <a href="/update?id=${title}">update</a>`
+      );
+      response.writeHead(200);
+      response.end(template);
+    });
+  });
+}
+```
+
+글수정 링크를 클릭했을 때 이동할 웹페이지를 생성한다.
+
+- form의 action 속성 값은 `/update_process`이다.
+- `<input type="hidden" name="id" value="${title}">`
+  - 사용자가 제목을 수정할 경우 제목에 맞는 파일을 디렉터리에서 찾을 수 없다.
+  - 이런 경우 사용자가 수정하는 정보와 우리가 수정하고자 하는 파일을 구분해서 전송해야 한다.
+  - 사용자에게 이 input 태그를 보여주지 않기 위해 hidden 타입으로 설정하였다.
+- input 태그의 value 속성과 textarea 태그의 컨텐츠에 수정하고자 하는 데이터를 미리 넣어둔다.
+
+# App 제작 - 글수정: 파일명 변경, 내용 저장
+
+```js
+else if (pathname === "/update_process") {
+  var body = "";
+  request.on("data", function (data) {
+    body = body + data;
+  });
+  request.on("end", function () {
+    var post = qs.parse(body);
+    var id = post.id;
+    var title = post.title;
+    var description = post.description;
+    console.log(post);
+
+    // 파일명 변경
+    fs.rename(`data/${id}`, `data/${title}`, function (error) {
+      // 내용 변경
+      fs.writeFile(`data/${title}`, description, "utf8", function (err) {
+        response.writeHead(302, { Location: `/?id=${title}` });
+        response.end();
+      });
+    });
+  });
+}
+```
+
+- 파일명을 변경하기 위해 File system의 `rename` 함수를 사용한다.
+  - 첫 번째 인자로 현재 파일 경로를 전달한다. 현재 파일 경로를 전달하기 위해 id 값을 사용하였다. 이 값은 name 속성 값이 id인 input 태그의 value 속성 값이다.
+  - 두 번째 인자로 새로운 파일 경로를 전달한다.
+  - 파일명을 변경하면 세 번째 인자인 콜백 함수가 실행된다.
+- 파일명 변경 후 내용을 변경하고 변경한 내용으로 업데이트된 웹페이지로 리다이렉션한다.
+
+# App 제작 - 글삭제: 삭제 버튼 구현
+
+삭제 버튼의 경우, 글목록에서 글을 선택한 상태에서 삭제 버튼이 활성화된다.
+
+```js
+fs.readdir("./data", function (err, filelist) {
+  fs.readFile(
+    `data/${queryData.id}`,
+    "utf8",
+    function (err, description) {
+      var title = queryData.id;
+      var list = templateList(filelist);
+      var template = templateHTML(
+        title,
+        list,
+        `<h2>${title}</h2>${description}`,
+        `<a href="/create">create</a>
+        <a href="/update?id=${title}">update</a>
+        <form action="/delete_process" method="post">
+          <input type="hidden" name="id" value="${title}">
+          <input type="submit" value="delete">
+        </form>`
+      );
+      response.writeHead(200);
+      response.end(template);
+    }
+  );
+});
+```
+
+- 삭제 버튼을 구현하기 위해 form 태그를 사용한다.
+  - 삭제 기능을 구현할 때 query string을 사용하는 get 방식은 절대 사용해선 안됀다.
+  - action 속성 값은 /delete_process로, method 속성 값은 post로 설정하였다.
+- input 태그의 type 속성을 submit으로, value 속성을 delete로 설정하여 삭제 버튼을 구현하였다.
+
+# App 제작 - 글삭제 기능 완성
+
+```js
+else if (pathname === "/delete_process") {
+  var body = "";
+  request.on("data", function (data) {
+    body = body + data;
+  });
+  request.on("end", function () {
+    var post = qs.parse(body);
+    var id = post.id;
+
+    // 파일 삭제
+    fs.unlink(`data/${id}`, function (err) {
+      // 파일 삭제 후 홈페이지로 리다이렉션
+      response.writeHead(302, { Location: `/` });
+      response.end();
+    });
+  });
+}
+```
+
+- id 변수의 값은 글제목이고 이것은 파일 이름과 같다.
+- File system 모듈의 unlink 함수를 사용해서 파일을 삭제한다.
+  - 첫 번째 인자로 삭제할 파일 경로를 전달한다.
+  - 두 번째 인자로 파일 삭제 후 실행할 콜백 함수를 전달한다.
+- 파일 삭제 후 홈페이지로 리다이렉션한다.
+
+# App 제작 - 템플릿 기능 정리정돈하기
+
+기존의 템플릿 기능은 다음과 같다.
+
+```js
+function templateHTML (title, list, body, control) {
+  return `
+    <!doctype html>
+    <html>
+    <head>
+      <title>WEB2 - ${title}</title>
+      <meta charset="utf-8">
+    </head>
+    <body>
+      <h1><a href="/">WEB</a></h1>
+      ${list}
+      ${control}
+      ${body}
+    </body>
+    </html>
+  `;
+}
+
+function templateList (filelist) {
+  var list = "<ul>";
+  var i = 0;
+  while (i < filelist.length) {
+    list = list + `<li><a href="/?id=${filelist[i]}">${filelist[i]}</a></li>`;
+    i += 1;
+  }
+  list = list + "</ul>";
+
+  return list;
+}
+```
+
+이 두 함수를 `template`이라는 객체의 프로퍼티(메서드)로 재구성한다.
+
+```js
+var template = {
+  HTML: function (title, list, body, control) {
+    return `
+      <!doctype html>
+      <html>
+      <head>
+        <title>WEB2 - ${title}</title>
+        <meta charset="utf-8">
+      </head>
+      <body>
+        <h1><a href="/">WEB</a></h1>
+        ${list}
+        ${control}
+        ${body}
+      </body>
+      </html>
+    `;
+  },
+  list: function (filelist) {
+    var list = "<ul>";
+    var i = 0;
+    while (i < filelist.length) {
+      list = list + `<li><a href="/?id=${filelist[i]}">${filelist[i]}</a></li>`;
+      i += 1;
+    }
+    list = list + "</ul>";
+
+    return list;
+  },
+};
+```
+
+마지막으로, 이전에 `templateHTML`, `templateList` 함수를 사용했던 모든 코드를 `template` 객체의 메서드를 사용하도록 수정한다.
+
+# Node.js 모듈의 형식
+
+모듈은 객체를 정리정돈할 수 있는 더 큰 틀의 정리정돈 도구이다.
+
+mpart.js 코드
+
+```js
+var M = {
+  v: "v",
+  f: function () {
+    console.log(this.v);
+  },
+};
+
+module.exports = M;
+```
+
+- `module.exports = M`
+  - mpart.js 파일에서 변수 M이 가리키는 객체를 모듈 바깥에서 사용할 수 있도록 export한다는 의미라고 이해하자.
+
+muse.js 코드
+
+```js
+var part = require("./mpart.js");
+console.log(part);  // { v: 'v', f: [Function: f] }
+
+part.f();  // v
+```
+
+- 모듈을 가져오기 위해 require를 사용한다.
+- mpart.js 파일에서 export한 객체를 가져온다.
+
+# App 제작 - 모듈의 활용
+
+템플릿 기능을 객체화한 `template` 객체를 모듈화한다.
+
+lib 디렉터리를 만들고, 디렉터리 내부에 template.js 파일을 생성한다.
+
+```js
+module.exports = {
+  HTML: function (title, list, body, control) {
+    return `
+      <!doctype html>
+      <html>
+      <head>
+        <title>WEB2 - ${title}</title>
+        <meta charset="utf-8">
+      </head>
+      <body>
+        <h1><a href="/">WEB</a></h1>
+        ${list}
+        ${control}
+        ${body}
+      </body>
+      </html>
+    `;
+  },
+  list: function (filelist) {
+    var list = "<ul>";
+    var i = 0;
+    while (i < filelist.length) {
+      list = list + `<li><a href="/?id=${filelist[i]}">${filelist[i]}</a></li>`;
+      i += 1;
+    }
+    list = list + "</ul>";
+
+    return list;
+  },
+};
+```
+
+- template 객체 코드를 넣는다.
+- module.exports를 사용하여 객체를 모듈 바깥에서 사용할 수 있도록 export한다.
+
+main.js 코드
+
+```js
+var template = require("./lib/template.js");
+```
+
+- lib 디렉터리의 template.js 모듈에서 export한 객체를 `template` 변수에 저장한다.
+- 이전에 템플릿 기능을 사용했던 것처럼 template 변수가 가리키는 객체의 `HTML`, `list` 메서드를 사용한다.
+
+# App 제작 - 입력정보에 대한 보안
+
+데이터베이스 관리자 아이디와 비밀번호를 저장하는 password.js 파일이 있다.
+
+```js
+module.exports = {
+  id: "egoing",
+  password: "111111",
+};
+```
+
+사용자가 `localhost:3000/?id=../password.js` 주소로 접속하는 경우 그대로 password.js 파일 내용이 웹페이지에 출력된다.
+
+이런 보안 문제점들을 해결하기 위해 Nodejs의 `path` 모듈을 사용한다.
+
+```js
+var path = require("path");
+```
+
+사용자로부터 경로가 입력되는 모든 곳에 대해 코드를 수정해야 한다.
+
+```js
+var filteredId = path.parse(queryData.id).base;
+fs.readFile(`data/${filteredId}`, "utf8", function (err, description) {
+  ...
+});
+```
+
+```js
+request.on("end", function () {
+  var post = qs.parse(body);
+  var id = post.id;
+  var filteredId = path.parse(id).base;
+  // 파일 삭제
+  fs.unlink(`data/${filteredId}`, function (err) {
+    // 파일 삭제 후 홈페이지로 리다이렉션
+    response.writeHead(302, { Location: `/` });
+    response.end();
+  });
+});
+```
+
+# App 제작 - 출력정보에 대한 보안(1)
+
+오염된 정보가 출력될 때 보안 이슈가 발생할 수 있다.
+
+공격자가 글 내용으로 악의적인 자바스크립트 코드를 입력할 수 있다.
+
+```html
+<script>
+  location.href = "http://...";
+</script>
+```
+
+- 사용자가 이 글을 클릭하면 해당 주소로 이동된다.
+
+이것 말고도 사용자의 로그인 정보를 갈취하는 등의 자바스크립트 코드를 심어놓을 수 있다. 따라서 사용자가 입력한 정보를 출력하는 경우 문제가 될 수 있는 것들을 필터링하는 작업을 해야 한다.
+
+간단하지만 수동적인 방법이 있다. script 태그를 태그로 해석하지 않도록 <>를 그대로 웹브라우저에 출력하는 것이다. (HTML Entities)
+
+```html
+&lt;script&gt;
+  location.href = "http://...";
+&lt;/script&gt;
+```
+
+- 사용자가 이 글을 클릭하면 해당 코드가 그대로 웹브라우저에 출력된다.
+
+# App 제작 - 출력정보에 대한 보안(2)
+
+```
+npm init
+```
+
+- npm init 으로 패키지를 생성한다.
+
+```
+npm install -S sanitize-html
+```
+
+- 사용자가 입력한 정보를 출력할 때 문제가 될 수 있는 것들을 필터링해주는 외부 패키지인 `sanitize-html`을 설치한다.
+- `-S` 옵션으로 진행할 프로젝트에서만 사용할 패키지로서 설치한다.
+
+# App 제작 - 출력정보에 대한 보안(3)
+
+`sanitize-html` 모듈을 사용한다.
+
+```js
+var sanitizeHtml = require("sanitize-html");
+```
+
+```js
+var sanitizedTitle = sanitizeHtml(title);
+var sanitizedDescription = sanitizeHtml(description);
+```
+
+- sanitizeHtml 함수에 필터링할 값을 넣으면 필터링된 값이 반환된다.
+- script 태그가 전달되면 script 태그와 그 콘텐츠는 아예 삭제된다.
+- 옵션으로 예외를 둘 수도 있다. (sanitize-html 사용법 참고)
+
+# API와 CreateServer
+
+API
+
+- Application Programming Interface의 약자
+- Node.js로 구현한 웹애플리케이션은 Node.js가 가지고 있는 기능을 호출해서 동작한다.
+- fs.readFile 함수 사용법은 Node.js 개발자들이 제공한다.
+- fs.readFile 함수는 Node.js 개발자들과 이 함수를 사용하는 개발자들의 약속된 조작 장치이다.
+- 이런 조작 장치를 Interface라고 한다.
+- 우리는 이런 Interface를 사용하여 Application을 Programming한다.
